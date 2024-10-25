@@ -1,12 +1,11 @@
 # 설치 목표
-- Terraform 이용하여 AWS 상에 Cloud Native Qumulo 3개 노드를 배포하여 1개 클러스터 구성
+- Terraform 이용하여 AWS 상에 Cloud Native Qumulo 클러스터 구성
 
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 아래 3개의 파일 준비
-  - xx
-  - xx
-  - xx
-
+  - aws-terraform-cnq.zip
+  - host_configuration.tar.gz
+  - qumulo-core.deb
 
 # 필요 어플리케이션 설치
 
