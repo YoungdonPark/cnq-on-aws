@@ -1,5 +1,5 @@
-# 설치 환경 예시
-- 
+# 설치 목표
+- Terraform 이용하여 AWS 상에 Cloud Native Qumulo 3개 노드를 배포하여 1개 클러스터 구성
 
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 아래 3개의 파일 준비
