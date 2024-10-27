@@ -3,7 +3,7 @@
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
-  - aws-terraform-cnq-<x.y>.zip
+  - aws-terraform-cnq-<x.y>.zip (x.y는 버전명을 가리킴)
   - host_configuration.tar.gz
   - qumulo-core.deb
 # 사전 필요 AWS 구성
