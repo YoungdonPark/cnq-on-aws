@@ -1,5 +1,6 @@
 # 설치 목표
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
+- 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 # 사전 필요 AWS 구성
 - 구성이 필요한 리소스
   - VPC 1개
@@ -19,8 +20,9 @@
       - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
     - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
     - ![image](https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7)
+    - 
   
-# Terraform 변수 파일 편집 및 명령어 실행 도구
+# 명령어 실행 도구 및 Terraform 변수 파일 편집 도구
 - VS Code와 같은 개발 도구 설치 권장
 - 또는 윈도우즈 PowerShell과 같은 기본 CLI 툴, 메모장등의 텍스트 에디터 사용
   
@@ -128,9 +130,6 @@
   }
 
 
-
-# CNQ를 위한 S3 백엔드 스토리지 구성
-- 
 
 
 # CNQ를 위한 S3 백엔드 스토리지 구성
