@@ -1,6 +1,11 @@
 # 설치 목표
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
+# 설치 파일 준비
+- Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
+  - aws-terraform-cnq-<x.y>.zip
+  - host_configuration.tar.gz
+  - qumulo-core.deb
 # 사전 필요 AWS 구성
 - 구성이 필요한 리소스
   - VPC 1개
