@@ -5,6 +5,7 @@
   - VPC 1개
     - Internet gateway 1개
     - S3 Gateway Endpoint 1개
+    - EC2 Keypair 1
     - Public subnet 1개
       - NAT gateway 1개
     - Private subnet 1개
@@ -16,7 +17,8 @@
     - Service category: AWS services 선택
     - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
       - ![image](https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454)
-    - 
+    - S3 Gateway endpoint 검증 방법
+      - https://repost.aws/knowledge-center/vpc-check-traffic-flow
 
 
 
