@@ -55,7 +55,7 @@
 		- ypark-cnq-utilbucket : 원하는 이름 지정
 		- cnq-install-files/ : 원하는 이름 지정
 		- qumulo-core-install/ : 정확하게 입력
-		- 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.2 설치한다면 7.2.2/ 로 입력, 7.2.3.1를 설치한다면 7.2.3.1/)
+		- 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
 - 전달 받은 qumulo-core.deb 파일을 CNQ 버전 디렉토리에 (이 설치에서는 7.2.3.1/) 업로드
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
 	- 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
