@@ -16,9 +16,9 @@
     - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
     - Service category: AWS services 선택
     - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
-      - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="10%" style="border: 2px solid black;">
+      - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%" style="border: 8px solid black;">
     - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
-      - <img src="https://github.com/user-attachments/assets/8c088034-f955-4288-9af5-bf46a7cc7d2d" width="50%" style="border: 2px solid black;">
+      - <img src="https://github.com/user-attachments/assets/8c088034-f955-4288-9af5-bf46a7cc7d2d" width="50%" style="border: 8px solid black;">
 
     - S3 Gateway endpoint 동작이 정상인지 검증 방법
       - https://repost.aws/knowledge-center/vpc-check-traffic-flow
