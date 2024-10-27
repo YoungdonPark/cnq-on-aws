@@ -49,13 +49,10 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
  - 업로드 완료된 예시 이미지
-![image](https://github.com/user-attachments/assets/253d7286-17c6-438f-bc8a-7274849a8234)
 
 
-![image](https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6)
 
-
-![image](https://github.com/user-attachments/assets/cbc1b384-039f-49a6-9af5-773ffd119532)
+![image](https://github.com/user-attachments/assets/eeb9df8d-9c33-47cc-ad37-a05f4848c21b)
 
 
 
