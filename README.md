@@ -23,9 +23,13 @@
   - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
     - ![image](https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7)
   - S3 Gateway endpoint 동작 검증 방법
-  - https://repost.aws/knowledge-center/vpc-check-traffic-flow
-
-  
+    - https://repost.aws/knowledge-center/vpc-check-traffic-flow
+# CNQ 설치 및 모니터링을 위한 방화벽 정책 허용
+- 목적지:api.nexus.qumulo.com, 포트: 443
+- 목적지:ep1.qumulo.com, 포트: 443
+- 목적지:api.missionq.qumulo.com, 포트: 443
+- 목적지:missionq-dumps.s3.amazonaws.com	, 포트: 443
+- 목적지:monitor.qumulo.com, 포트: 443  
 # 명령어 실행 도구 및 Terraform 변수 파일 편집 도구
 - VS Code와 같은 개발 도구 설치 권장
 - 또는 윈도우즈 PowerShell과 같은 기본 CLI 툴, 메모장등의 텍스트 에디터 사용
