@@ -20,7 +20,7 @@
     - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
       - <img src="https://github.com/user-attachments/assets/8c088034-f955-4288-9af5-bf46a7cc7d2d" width="55%">
     - S3 Gateway endpoint를 동작 시킬 Subnet을 지정
-      - <img src="https://github.com/user-attachments/assets/8cf497be-aa58-4cf5-a518-f61c7107211a)" width="55%">
+      ![image](https://github.com/user-attachments/assets/c3f75968-6606-4ec3-9855-87ea23f589ff)
 
 
 
