@@ -2,7 +2,7 @@
 - Terraform 이용하여 AWS 상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 
 # 설치 파일 준비
-- Qumulo 담당자와 Contact하여 아래 3개의 파일 준비
+- Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
   - aws-terraform-cnq-.x.x.zip
   	- x.x는 버전명, 예를 들어 aws-terraform-cnq-5.0은 5.0 버전을 가르킴
   - host_configuration.tar.gz
