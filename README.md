@@ -63,12 +63,13 @@
     soft_capacity_limit = 500
 - CLI 툴을 열고 aws-terraform-cnq-5.0\persistent-storage 경로로 이동
 - 아래의 명령어들을 실행하여 S3 백엔드 스토리지 생성
+- Terraform 초기화
     ```terraform
-    # Terraform 초기화
     terraform init
     # 결과 예시 (중요 부분만 발췌)
     Terraform has been successfully initialized!
-    # Terraform의 변경 사항 예측, 영향도 확인, 에러 검증
+- Terraform 의 변경 사항 예측, 영향도 확인, 에러 검증
+    ```terraform
     terraform plan
     #출력 예시 (중요 부분만 발췌)
     .... 생략 ....
@@ -79,7 +80,8 @@
     aws_s3_bucket.cnq_bucket[3]: Refreshing state... [id=1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4]
     .... 생략 ....
     Plan: 4 to add, 1 to change, 0 to destroy.
-    # Terraform 실행
+- Terraform을 실행하여 리소스 생성
+```terraform
     terraform apply
     # 실행 여부 재확인: yes 입력
     Do you want to perform these actions?
