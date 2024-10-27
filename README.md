@@ -53,8 +53,6 @@
 
 ![image](https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6)
 
-- 파워쉘을 열고 이 경로로 이동
-
 # AWS 계정 준비
 - AWS 액세스 포털등을 이용하여 AWS 자격 증명 가져오기
   - 참고 문서: https://docs.aws.amazon.com/ko_kr/singlesignon/latest/userguide/using-the-portal.html
