@@ -37,7 +37,7 @@
 
 # AWS 계정 준비
 - AWS 액세스 포털등을 이용하여 AWS 자격 증명 가져오기
-  - https://docs.aws.amazon.com/ko_kr/singlesignon/latest/userguide/using-the-portal.html
+  - 참고 문서: https://docs.aws.amazon.com/ko_kr/singlesignon/latest/userguide/using-the-portal.html
 - 파워쉘을 열고 `aws sts get-caller-identity` 명령어로 로그인 정상 여부 확인
   ```powershell 
   # aws 로그인 정보 확인
