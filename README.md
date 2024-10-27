@@ -14,9 +14,9 @@
   - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
     - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
     - Service category: AWS services 선택
-    - ![image](https://github.com/user-attachments/assets/102d52c0-2300-4d10-abda-b8eae918463a)   
-    - ![image](https://github.com/user-attachments/assets/41f64026-3a99-453f-95b6-089a083f0b3b)
-    - ![image](https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454)
+    - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
+      - ![image](https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454)
+    - 
 
 
 
