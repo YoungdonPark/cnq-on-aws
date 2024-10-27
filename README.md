@@ -20,11 +20,9 @@
     - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
     - ![image](https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7)
   
-
-
-  즈 PowerShell과 같은 기본 CLI 툴과 메모장등의 텍스트 에디터 사용
-
-
+# Terraform 변수 파일 편집 및 명령어 실행 도구
+- VS Code와 같은 개발 도구 설치 권장
+- 또는 윈도우즈 PowerShell과 같은 기본 CLI 툴과 메모장등의 텍스트 에디터 사용
   
 # 필요 어플리케이션 설치
 - 설치 필요한 어플리케이션 목록
