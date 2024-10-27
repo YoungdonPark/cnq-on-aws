@@ -1,23 +1,18 @@
 # 설치 목표
 - Terraform 이용하여 AWS 상에 Cloud Native Qumulo(CNQ) 클러스터 구성
-
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
   - aws-terraform-cnq-.x.x.zip
   - host_configuration.tar.gz
   - qumulo-core.deb
-
 # 개발 도구 설치 또는 확인
 - VS Code와 같은 개발 도구 설치 권장
 - 또는 윈도우 PowerShell과 같은 기본 CLI 툴 사용 가능
-
 # 필요 어플리케이션 설치
-
 - 설치 필요한 어플리케이션 목록
   - 사용하는 OS에 맞는 CLI 기반 패키지 관리툴
   - 최신 버전의 awscli
-  - 최신 버전의 Terraform
-  
+  - 최신 버전의 Terraform  
 - MAC의 경우 Homebrew 와 같은 CLI 기반의 패키지 관리 툴 설치 권장
   - 아래 윈도우의 설명을 참고하여 설치
 - 윈도우의 경우 Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
@@ -44,7 +39,6 @@
     # 출력 예시
     Terraform v1.9.8
     on windows_amd64
-
 # CNQ 설치 파일을 S3 버킷에 업로드
 - AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
 - Create Bucket 버튼을 누르고 아래 예시와 같이 버킷을 생성
