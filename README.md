@@ -79,7 +79,7 @@
     aws_region = "ap-northeast-2"
     # Terraform이 리소스를 destroy 할 수 있도록 설정(운영 환경에서는 true를 권고)
     prevent_destroy     = false
-    # S3 백엔드 스토리지의 버킷 용량 (최소값은 500TB)
+    # S3 백엔드 스토리지의 버킷 용량 (최소값은 500TB, 사용한 용량 만큼만 과금)
     soft_capacity_limit = 500
 - CLI 툴을 열고 aws-terraform-cnq-5.0\persistent-storage 경로로 이동
 - 아래의 명령어들을 실행하여 S3 백엔드 스토리지 생성
