@@ -40,8 +40,19 @@
     Terraform v1.9.8
     on windows_amd64
 
-
-
+# AWS 로그인
+- AWS 액세스 포털등을 이용하여 로그인
+  - https://docs.aws.amazon.com/ko_kr/singlesignon/latest/userguide/using-the-portal.html
+- 파워쉘을 열고 `aws sts get-caller-identity` 명령어로 로그인 정상 여부 확인
+  ```powershell 
+  # aws 로그인 정보 확인
+  aws sts get-caller-identity
+  # 출력 예시
+  {
+      "UserId": "AIDXXXXXXXXXX",
+      "Account": "123456789012",
+      "Arn": "arn:aws:iam::123456789012:user/username"
+  }
 
 # CNQ 설치 파일을 S3 버킷에 업로드
 - AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
@@ -67,14 +78,14 @@
     deployment_name = "ypark-cnq7231-3nodes-s3be"
     # 설치 Region 지정
     aws_region = "ap-northeast-2"
-    # 테라폼으로 이 리소스를 destroy 할 수 있도록 설정(운영 환경에서는 true를 권고)
+    # Terraform이 리소스를 destroy 할 수 있도록 설정(운영 환경에서는 true를 권고)
     prevent_destroy     = false
     # S3 백엔드 스토리지의 버킷 용량 (최소값은 500TB)
     soft_capacity_limit = 500
 - CLI 툴을 열고 aws-terraform-cnq-5.0\persistent-storage 경로로 이동
 - 아래의 명령어들을 실행하여 S3 백엔드 스토리지 생성
     ```powershell
-    # 테라폼 초기화
+    # Terraform 초기화
     terraform init
     # 테라폼의 변경 사항 예측, 영향도 확인, 에러 검증
     terraform plan
@@ -102,19 +113,6 @@
 # CNQ를 위한 S3 백엔드 스토리지 구성
 
 
-# AWS 계정 준비
-- AWS 액세스 포털등을 이용하여 AWS 자격 증명 가져오기
-  - https://docs.aws.amazon.com/ko_kr/singlesignon/latest/userguide/using-the-portal.html
-- 파워쉘을 열고 `aws sts get-caller-identity` 명령어로 로그인 정상 여부 확인
-  ```powershell 
-  # aws 로그인 정보 확인
-  aws sts get-caller-identity
-  # 출력 예시
-  {
-      "UserId": "AIDXXXXXXXXXX",
-      "Account": "123456789012",
-      "Arn": "arn:aws:iam::123456789012:user/username"
-  }
 
 
 
