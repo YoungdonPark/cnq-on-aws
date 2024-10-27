@@ -50,7 +50,10 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
  - 업로드 완료된 예시 이미지
-   - ![image](https://github.com/user-attachments/assets/ee5c5262-36e6-402a-92e7-2d392b51fe7f)
+   - ![image](https://github.com/user-attachments/assets/907b28d7-842a-4b71-b49d-10bc7069e435)
+
+
+   
 # Terraform 변수 파일 편집 및 실행 환경
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
 - 또는 Windows PowerShell과 같은 기본 CLI 툴과 메모장등의 텍스트 에디터 사용
