@@ -9,7 +9,7 @@
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
 - 또는 윈도우즈 파워쉘과 같은 기본 CLI 툴 사용 가능
 # 필요 어플리케이션 설치
-- 설치 필요한 Application 목록
+- 설치 필요한 어플리케이션 목록
   - CLI 기반 패키지 관리 툴
   - AWS CLI
   - Terraform
