@@ -71,7 +71,7 @@
 # CNQ를 위한 S3 백엔드 스토리지 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
-- 아래 예시를 참고하여 해당 파일의 아래 파라미터만 수정하고 나머지는 default 값으로 유지
+- 아래 예시를 참고하여 해당 파일의 아래 변수만 수정하고 나머지는 default 값으로 유지
     ```powershell
     # 원하는 deployment_name 지정(32글자 이하)
     deployment_name = "ypark-cnq7231-3nodes-s3be"
