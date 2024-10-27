@@ -1,5 +1,5 @@
-# 설치 목표
-- Terraform 이용하여 AWS 상에 Cloud Native Qumulo(CNQ) 클러스터 구성
+# 설치 목표 
+- 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
   - aws-terraform-cnq-.x.x.zip
@@ -7,15 +7,13 @@
   - qumulo-core.deb
 # 개발 도구 설치 또는 확인
 - VS Code와 같은 개발 도구 설치 권장
-- 또는 윈도우 PowerShell과 같은 기본 CLI 툴 사용 가능
+- 또는 윈도우즈 파워쉘과 같은 기본 CLI 툴 사용 가능
 # 필요 어플리케이션 설치
-- 설치 필요한 어플리케이션 목록
-  - 사용하는 OS에 맞는 CLI 기반 패키지 관리툴
-  - 최신 버전의 awscli
-  - 최신 버전의 Terraform  
-- MAC의 경우 Homebrew 와 같은 CLI 기반의 패키지 관리 툴 설치 권장
-  - 아래 윈도우의 설명을 참고하여 설치
-- 윈도우의 경우 Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
+- 설치 필요한 Application 목록
+  - CLI 기반 패키지 관리 툴
+  - AWS CLI
+  - Terraform
+- Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
   - Chocolatey (https://chocolatey.org/install) 방문 후 설치 안내 참고하여 설치
   - CLI 툴(ex:윈도우 PowerShell)을 열고 아래 명령어 수행
   - `choco --version` 명령어로 Chocolatey 버전 확인
