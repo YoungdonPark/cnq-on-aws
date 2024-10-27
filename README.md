@@ -18,39 +18,7 @@
     - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
       - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
     - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
-      - <img src="https://github.com/user-attachments/assets/8c088034-f955-4288-9af5-bf46a7cc7d2d" width="55%">
-    - S3 Gateway endpoint를 동작 시킬 Subnet을 지정 후 완료 
-      - <img src="https://github.com/user-attachments/assets/c3f75968-6606-4ec3-9855-87ea23f589ff" width="70%">
-    - S3 Gateway endpoint 동작이 정상인지 검증 방법
-      - https://repost.aws/knowledge-center/vpc-check-traffic-flow
-# 설치 및 모니터링을 위해 방화벽 허용이 필요한 목록
-- 목적지: api.nexus.qumulo.com, 포트: 443
-- 목적지: ep1.qumulo.com, 포트: 443
-- 목적지: api.missionq.qumulo.com, 포트: 443
-- 목적지: missionq-dumps.s3.amazonaws.com, 포트: 443
-- 목적지: monitor.qumulo.com, 포트: 443
-# 설치 파일 준비
-- Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
-  - aws-terraform-cnq-<x.y>.zip
-  - host_configuration.tar.gz
-  - qumulo-core.deb
-# CNQ 설치 파일을 S3 버킷에 업로드
-- AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
-- Create Bucket 버튼을 누르고 아래 예시와 같이 버킷을 생성
-  - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
-    - ypark-cnq-utilbucket : 원하는 이름 지정
-    - cnq-install-files/ : 원하는 이름 지정
-    - qumulo-core-install/ : 정확하게 입력
-    - 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
-- 전달 받은 qumulo-core.deb 파일을 CNQ 버전 디렉토리에 업로드
-- 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
-  - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
- - 업로드 완료된 예시 이미지
-   - <img src="https://github.com/user-attachments/assets/907b28d7-842a-4b71-b49d-10bc7069e435" width="50%">
-   
-# Terraform 변수 파일 편집 및 실행 환경
-- VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
-- 또는 Windows PowerShell과 같은 기본 CLI 툴과 메모장등의 텍스트 에디터 사용
+  즈 PowerShell과 같은 기본 CLI 툴과 메모장등의 텍스트 에디터 사용
 # 필요 어플리케이션 설치
 - 설치 필요한 어플리케이션 목록
   - CLI 기반의 패키지 관리 툴
@@ -84,7 +52,7 @@
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
 - 아래 예시를 참고하여 해당 파일의 아래 변수만 수정하고 나머지는 default 값으로 유지
-    ```powershell
+    ```terraform
     # 원하는 deployment_name 지정(32글자 이하)
     deployment_name = "ypark-cnq7231-3nodes-s3be"
     # 설치 Region 지정
@@ -95,7 +63,7 @@
     soft_capacity_limit = 500
 - CLI 툴을 열고 aws-terraform-cnq-5.0\persistent-storage 경로로 이동
 - 아래의 명령어들을 실행하여 S3 백엔드 스토리지 생성
-    ```powershell
+    ```terraform
     # Terraform 초기화
     terraform init
     # 결과 예시 (중요 부분만 발췌)
