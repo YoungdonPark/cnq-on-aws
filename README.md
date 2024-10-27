@@ -6,6 +6,21 @@
   - aws-terraform-cnq-<x.y>.zip (x.y는 버전)
   - host_configuration.tar.gz
   - qumulo-core.deb
+# CNQ 설치 파일을 S3 버킷에 업로드
+- AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
+- Create Bucket 버튼을 누르고 아래 예시와 같이 버킷을 생성
+  - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
+    - ypark-cnq-utilbucket : 원하는 이름 지정
+    - cnq-install-files/ : 원하는 이름 지정
+    - qumulo-core-install/ : 정확하게 입력
+    - 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
+- 전달 받은 qumulo-core.deb 파일을 CNQ 버전 디렉토리에 업로드
+- 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
+  - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
+ - 업로드 완료된 예시 이미지
+
+![image](https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6)
+
 # 사전 필요 AWS 구성
 - 구성이 필요한 리소스
   - VPC 1개
