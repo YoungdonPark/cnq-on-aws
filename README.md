@@ -7,13 +7,17 @@
   - host_configuration.tar.gz
   - qumulo-core.deb
 
-# 필요 어플리케이션 설치 (명령어 기반 패키지 관리툴, awscli, terraform)
+# 개발 도구 설치 또는 확인
+- VS Code와 같은 개발 도구 설치 권장
+- 또는 윈도우 PowerShell과 같은 기본 CLI 툴 사용 가능
 
-- MAC의 경우 Homebrew 와 같은 명령어 기반의 패키지 관리 툴 설치 권장
-	- 아래 윈도우의 설명을 참고하여 설치
-- 윈도우의 경우 Chocolatey와 같은 명령어 기반의 패키지 관리 툴 설치 권장
+# 필요 어플리케이션 설치 (CLI 기반 패키지 관리툴, awscli, terraform)
+
+- MAC의 경우 Homebrew 와 같은 CLI 기반의 패키지 관리 툴 설치 권장
+  - 아래 윈도우의 설명을 참고하여 설치
+- 윈도우의 경우 Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
   - Chocolatey (https://chocolatey.org/install) 방문 후 설치 안내 참고하여 설치
-  - 파워쉘을 관리자 권한으로 열기 (이후 모든 작업은 파워쉘을 관리자 권한으로 열고 수행)
+  - CLI 툴(ex:윈도우 PowerShell)을 열고 아래 명령어 수행
   - `choco --version` 명령어로 Chocolatey 버전 확인
     ```powershell
     # Chocolatey 버전 확인
@@ -37,35 +41,50 @@
     on windows_amd64
 
 
+
+
 # CNQ 설치 파일을 S3 버킷에 업로드
 - AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
 - Create Bucket 버튼을 누르고 아래 예시와 같이 버킷을 생성
-	- 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
-		- ypark-cnq-utilbucket : 원하는 이름 지정
-		- cnq-install-files/ : 원하는 이름 지정
-		- qumulo-core-install/ : 정확하게 입력
-		- 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
+  - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
+    - ypark-cnq-utilbucket : 원하는 이름 지정
+    - cnq-install-files/ : 원하는 이름 지정
+    - qumulo-core-install/ : 정확하게 입력
+    - 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
 - 전달 받은 qumulo-core.deb 파일을 CNQ 버전 디렉토리에 업로드
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
-	- 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
+  - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
  - 업로드 완료된 예시 이미지
 
 ![image](https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6)
 
 # CNQ를 위한 S3 백엔드 스토리지 생성
 - aws-terraform-cnq-.x.x.zip 파일을 원하는 경로에 압축 해제
-- 압축 해제 후 persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
-- 아래를 참고하여 해당 파일의 아래 파라미터만 수정하고 나머지는 default로 유지
-    ```powershell 
+- 압축 해제 후 aws-terraform-cnq-5.0\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
+- 아래 예시를 참고하여 해당 파일의 아래 파라미터만 수정하고 나머지는 default 값으로 유지
+    ```powershell
     # 원하는 deployment_name 지정(32글자 이하)
     deployment_name = "ypark-cnq7231-3nodes-s3be"
     # 설치 Region 지정
     aws_region = "ap-northeast-2"
-    # terraform 으로 이 리소스를 destroy 할 수 있도록 설정(운영 환경에서는 true를 권고)
+    # 테라폼으로 이 리소스를 destroy 할 수 있도록 설정(운영 환경에서는 true를 권고)
     prevent_destroy     = false
     # S3 백엔드 스토리지의 버킷 용량 (최소값은 500TB)
     soft_capacity_limit = 500
-    
+- CLI 툴을 열고 aws-terraform-cnq-5.0\persistent-storage 경로로 이동
+- 아래의 명령어들을 실행하여 S3 백엔드 스토리지 생성
+    ```powershell
+    # 테라폼 초기화
+    terraform init
+    # 테라폼의 변경 사항 예측, 영향도 확인, 에러 검증
+    terraform plan
+    # terraform plan 수행 후 
+    # 
+
+
+
+- 결과 예시
+
 
 
 
