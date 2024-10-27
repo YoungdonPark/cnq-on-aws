@@ -19,12 +19,8 @@
       - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
     - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
       - <img src="https://github.com/user-attachments/assets/8c088034-f955-4288-9af5-bf46a7cc7d2d" width="55%">
-    - S3 Gateway endpoint를 동작 시킬 Subnet을 지정
-      
-      - <img src="https://github.com/user-attachments/assets/c3f75968-6606-4ec3-9855-87ea23f589ff" width="55%">
-
-
-
+    - S3 Gateway endpoint를 동작 시킬 Subnet을 지정      
+      - <img src="https://github.com/user-attachments/assets/c3f75968-6606-4ec3-9855-87ea23f589ff" width="70%">
     - S3 Gateway endpoint 동작이 정상인지 검증 방법
       - https://repost.aws/knowledge-center/vpc-check-traffic-flow
 
