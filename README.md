@@ -38,7 +38,7 @@
    - ![image](https://github.com/user-attachments/assets/ee5c5262-36e6-402a-92e7-2d392b51fe7f)
 # Terraform 변수 파일 편집 및 실행 환경
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
-- 또는 윈도우즈 파워쉘과 같은 기본 CLI 툴과 메모장등의 텍스트 에디터 사용
+- 또는 Windows PowerShell과 같은 기본 CLI 툴과 메모장등의 텍스트 에디터 사용
 # 필요 어플리케이션 설치
 - 설치 필요한 어플리케이션 목록
   - CLI 기반의 패키지 관리 툴
@@ -46,7 +46,7 @@
   - Terraform
 - Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
   - Chocolatey (https://chocolatey.org/install) 방문 후 설치 안내 참고하여 설치
-  - CLI 툴(ex:윈도우 PowerShell)을 열고 아래 명령어 수행
+  - CLI 툴을 열고 아래 명령어 수행
   - `choco --version` 명령어로 Chocolatey 버전 확인
     ```powershell
     # Chocolatey 버전 확인
