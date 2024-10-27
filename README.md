@@ -18,7 +18,14 @@
     - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
       - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
     - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
+    - ![image](https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7)
+  
+
+
   즈 PowerShell과 같은 기본 CLI 툴과 메모장등의 텍스트 에디터 사용
+
+
+  
 # 필요 어플리케이션 설치
 - 설치 필요한 어플리케이션 목록
   - CLI 기반의 패키지 관리 툴
