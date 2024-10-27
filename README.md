@@ -23,10 +23,6 @@
       - <img src="https://github.com/user-attachments/assets/c3f75968-6606-4ec3-9855-87ea23f589ff" width="70%">
     - S3 Gateway endpoint 동작이 정상인지 검증 방법
       - https://repost.aws/knowledge-center/vpc-check-traffic-flow
-
-
-
-
 # 설치 및 모니터링을 위해 방화벽 허용이 필요한 목록
 - 목적지: api.nexus.qumulo.com, 포트: 443
 - 목적지: ep1.qumulo.com, 포트: 443
@@ -50,7 +46,7 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
  - 업로드 완료된 예시 이미지
-   - <img src="https://github.com/user-attachments/assets/907b28d7-842a-4b71-b49d-10bc7069e435" width="20%">
+   - <img src="https://github.com/user-attachments/assets/907b28d7-842a-4b71-b49d-10bc7069e435" width="50%">
    
 # Terraform 변수 파일 편집 및 실행 환경
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
