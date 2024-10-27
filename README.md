@@ -13,14 +13,14 @@
 
 # 필요 어플리케이션 설치
 
-## 설치 필요한 어플리케이션 목록
+- 설치 필요한 어플리케이션 목록
   - 사용하는 OS에 맞는 CLI 기반 패키지 관리툴
   - 최신 버전의 awscli
   - 최신 버전의 Terraform
   
-## MAC의 경우 Homebrew 와 같은 CLI 기반의 패키지 관리 툴 설치 권장
+- MAC의 경우 Homebrew 와 같은 CLI 기반의 패키지 관리 툴 설치 권장
   - 아래 윈도우의 설명을 참고하여 설치
-## 윈도우의 경우 Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
+- 윈도우의 경우 Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
   - Chocolatey (https://chocolatey.org/install) 방문 후 설치 안내 참고하여 설치
   - CLI 툴(ex:윈도우 PowerShell)을 열고 아래 명령어 수행
   - `choco --version` 명령어로 Chocolatey 버전 확인
