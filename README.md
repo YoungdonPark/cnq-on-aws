@@ -1,10 +1,34 @@
-# 설치 목표 
+# 설치 목표
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
+# 사전 필요 AWS 구성
+- 구성이 필요한 리소스
+  - VPC 1개
+    - Internet gateway 1개
+    - S3 Gateway Endpoint 1개
+    - Public subnet 1개
+      - NAT gateway 1개
+    - Private subnet 1개
+- 라우팅
+  - xx
+  - xx
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
   - aws-terraform-cnq-.x.x.zip
   - host_configuration.tar.gz
   - qumulo-core.deb
+# CNQ 설치 파일을 S3 버킷에 업로드
+- AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
+- Create Bucket 버튼을 누르고 아래 예시와 같이 버킷을 생성
+  - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
+    - ypark-cnq-utilbucket : 원하는 이름 지정
+    - cnq-install-files/ : 원하는 이름 지정
+    - qumulo-core-install/ : 정확하게 입력
+    - 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
+- 전달 받은 qumulo-core.deb 파일을 CNQ 버전 디렉토리에 업로드
+- 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
+  - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
+ - 업로드 완료된 예시 이미지
+   - ![image](https://github.com/user-attachments/assets/afe3c5ca-625a-4d6e-9e72-9cb376882000)
 # Terraform 변수 파일 편집 및 실행 환경
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
 - 또는 윈도우즈 파워쉘과 같은 기본 CLI 툴 사용 가능
@@ -37,18 +61,7 @@
     # 출력 예시
     Terraform v1.9.8
     on windows_amd64
-# CNQ 설치 파일을 S3 버킷에 업로드
-- AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
-- Create Bucket 버튼을 누르고 아래 예시와 같이 버킷을 생성
-  - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
-    - ypark-cnq-utilbucket : 원하는 이름 지정
-    - cnq-install-files/ : 원하는 이름 지정
-    - qumulo-core-install/ : 정확하게 입력
-    - 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
-- 전달 받은 qumulo-core.deb 파일을 CNQ 버전 디렉토리에 업로드
-- 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
-  - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
- - 업로드 완료된 예시 이미지
+
 
 
 
