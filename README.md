@@ -8,7 +8,7 @@
   - qumulo-core.deb
 # CNQ 설치 파일을 S3 버킷에 업로드
 - AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
-- Create Bucket 버튼을 누르고 아래 예시와 같이 버킷을 생성
+- 아래 예시와 같이 버킷 생성 및 파일 업로드
   - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
     - ypark-cnq-utilbucket : 원하는 이름 지정
     - cnq-install-files/ : 원하는 이름 지정
