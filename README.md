@@ -29,6 +29,8 @@
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
  - 업로드 완료된 예시 이미지
    - ![image](https://github.com/user-attachments/assets/afe3c5ca-625a-4d6e-9e72-9cb376882000)
+   - ![image](https://github.com/user-attachments/assets/ee5c5262-36e6-402a-92e7-2d392b51fe7f)
+
 # Terraform 변수 파일 편집 및 실행 환경
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
 - 또는 윈도우즈 파워쉘과 같은 기본 CLI 툴 사용 가능
