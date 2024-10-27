@@ -12,6 +12,12 @@
   - Public subnet의 디폴트 라우팅을 위한 목적지: Internet gateway
   - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
   - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
+    - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
+    - Service category: AWS services 선택
+    - ![image](https://github.com/user-attachments/assets/102d52c0-2300-4d10-abda-b8eae918463a)   
+    - ![image](https://github.com/user-attachments/assets/41f64026-3a99-453f-95b6-089a083f0b3b)
+
+
 # 설치 및 모니터링을 위해 방화벽 허용이 필요한 목록
 - 목적지: api.nexus.qumulo.com, 포트: 443
 - 목적지: ep1.qumulo.com, 포트: 443
