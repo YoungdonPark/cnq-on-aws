@@ -40,20 +40,6 @@
     Terraform v1.9.8
     on windows_amd64
 
-# AWS 로그인
-- AWS 액세스 포털등을 이용하여 로그인
-  - https://docs.aws.amazon.com/ko_kr/singlesignon/latest/userguide/using-the-portal.html
-- 파워쉘을 열고 `aws sts get-caller-identity` 명령어로 로그인 정상 여부 확인
-  ```powershell 
-  # aws 로그인 정보 확인
-  aws sts get-caller-identity
-  # 출력 예시
-  {
-      "UserId": "AIDXXXXXXXXXX",
-      "Account": "123456789012",
-      "Arn": "arn:aws:iam::123456789012:user/username"
-  }
-
 # CNQ 설치 파일을 S3 버킷에 업로드
 - AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
 - Create Bucket 버튼을 누르고 아래 예시와 같이 버킷을 생성
@@ -66,8 +52,15 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
  - 업로드 완료된 예시 이미지
+![image](https://github.com/user-attachments/assets/253d7286-17c6-438f-bc8a-7274849a8234)
+
 
 ![image](https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6)
+
+
+![image](https://github.com/user-attachments/assets/cbc1b384-039f-49a6-9af5-773ffd119532)
+
+
 
 # CNQ를 위한 S3 백엔드 스토리지 생성
 - aws-terraform-cnq-.x.x.zip 파일을 원하는 경로에 압축 해제
@@ -93,7 +86,6 @@
     # 
 
 
-
 - 결과 예시
 
 
@@ -102,7 +94,19 @@
 =============================
 - 
 
-- 
+- # AWS 로그인
+- AWS 액세스 포털등을 이용하여 로그인
+  - https://docs.aws.amazon.com/ko_kr/singlesignon/latest/userguide/using-the-portal.html
+- 파워쉘을 열고 `aws sts get-caller-identity` 명령어로 로그인 정상 여부 확인
+  ```powershell 
+  # aws 로그인 정보 확인
+  aws sts get-caller-identity
+  # 출력 예시
+  {
+      "UserId": "AIDXXXXXXXXXX",
+      "Account": "123456789012",
+      "Arn": "arn:aws:iam::123456789012:user/username"
+  }
 
 
 
