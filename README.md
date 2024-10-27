@@ -66,7 +66,7 @@
     ```powershell
     # Chocolatey 버전 확인
     choco --version
-    # 출력 예시
+    # 결과 예시
     2.3.0
   - `choco install awscli` 명령어로 awscli 설치
   - `choco install terraform` 명령어로 terraform 설치
@@ -74,13 +74,13 @@
     ```powershell
     # awscli 버전 확인
     aws --version
-    # 출력 예시
+    # 결과 예시 
     aws-cli/2.17.32 Python/3.11.9 Windows/10 exe/AMD64
   - `terraform -version` 명령어로 terraform 버전 확인
     ```powershell 
     # Terraform 버전 확인
     terraform -version
-    # 출력 예시
+    # 결과과 예시
     Terraform v1.9.8
     on windows_amd64
 # CNQ를 위한 S3 백엔드 스토리지 생성
@@ -101,15 +101,41 @@
     ```powershell
     # Terraform 초기화
     terraform init
-    # 테라폼의 변경 사항 예측, 영향도 확인, 에러 검증
+    # 결과 예시 (중요 부분만 발췌)
+    Terraform has been successfully initialized!
+    # Terraform의 변경 사항 예측, 영향도 확인, 에러 검증
     terraform plan
-    # terraform plan 수행 후 
-    # 
+    #출력 예시 (중요 부분만 발췌)
+    .... 생략 ....
+    aws_ssm_parameter.bucket-region: Refreshing state... [id=/qumulo/ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV/bucket-region]
+    aws_s3_bucket.cnq_bucket[2]: Refreshing state... [id=f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3]
+    aws_s3_bucket.cnq_bucket[1]: Refreshing state... [id=dj7bynqnzpv-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-2]
+    aws_s3_bucket.cnq_bucket[0]: Refreshing state... [id=x3jbivvuwds-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-1]
+    aws_s3_bucket.cnq_bucket[3]: Refreshing state... [id=1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4]
+    .... 생략 ....
+    Plan: 4 to add, 1 to change, 0 to destroy.
+    # Terraform 실행
+    terraform apply
+    # 실행 여부 재확인: yes 입력
+    Do you want to perform these actions?
+    Terraform will perform the actions described above.
+    Only 'yes' will be accepted to approve.
+  
+    Enter a value: yes
+    #출력 예시 (중요 부분만 발췌)
+    Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 
-
-- 결과 예시
-
-
+    Outputs:
+    
+    bucket_names = [
+      "x3jbivvuwds-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-1",
+      "dj7bynqnzpv-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-2",
+      "f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3",
+      "1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4",
+    ]
+    deployment_unique_name = "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"
+    prevent_destroy = false
+    soft_capacity_limit = "500 TB"
 
 
 =============================
