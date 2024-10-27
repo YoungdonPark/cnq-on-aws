@@ -9,11 +9,18 @@
       - NAT gateway 1개
     - Private subnet 1개
 - 라우팅
-  - xx
-  - xx
+  - Public subnet의 디폴트 라우팅을 위한 목적지: Internet gateway
+  - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
+  - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
+# 설치 및 모니터링을 위해 방화벽 허용이 필요한 목록
+- 목적지: api.nexus.qumulo.com, 포트: 443
+- 목적지: ep1.qumulo.com, 포트: 443
+- 목적지: api.missionq.qumulo.com, 포트: 443
+- 목적지: missionq-dumps.s3.amazonaws.com, 포트: 443
+- 목적지: monitor.qumulo.com, 포트: 443
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
-  - aws-terraform-cnq-.x.x.zip
+  - aws-terraform-cnq-<x.y>.zip
   - host_configuration.tar.gz
   - qumulo-core.deb
 # CNQ 설치 파일을 S3 버킷에 업로드
@@ -34,7 +41,7 @@
 - 또는 윈도우즈 파워쉘과 같은 기본 CLI 툴 사용 가능
 # 필요 어플리케이션 설치
 - 설치 필요한 어플리케이션 목록
-  - CLI 기반 패키지 관리 툴
+  - CLI 기반의 패키지 관리 툴
   - AWS CLI
   - Terraform
 - Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
@@ -61,17 +68,9 @@
     # 출력 예시
     Terraform v1.9.8
     on windows_amd64
-
-
-
-
-![image](https://github.com/user-attachments/assets/eeb9df8d-9c33-47cc-ad37-a05f4848c21b)
-
-
-
 # CNQ를 위한 S3 백엔드 스토리지 생성
-- aws-terraform-cnq-.x.x.zip 파일을 원하는 경로에 압축 해제
-- 압축 해제 후 aws-terraform-cnq-5.0\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
+- aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
+- 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
 - 아래 예시를 참고하여 해당 파일의 아래 파라미터만 수정하고 나머지는 default 값으로 유지
     ```powershell
     # 원하는 deployment_name 지정(32글자 이하)
