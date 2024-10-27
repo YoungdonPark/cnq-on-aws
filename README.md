@@ -16,6 +16,9 @@
     - Service category: AWS services 선택
     - ![image](https://github.com/user-attachments/assets/102d52c0-2300-4d10-abda-b8eae918463a)   
     - ![image](https://github.com/user-attachments/assets/41f64026-3a99-453f-95b6-089a083f0b3b)
+    - ![image](https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454)
+
+
 
 
 # 설치 및 모니터링을 위해 방화벽 허용이 필요한 목록
