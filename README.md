@@ -15,7 +15,7 @@
   - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
   - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
 - S3 Gateway endpoint
-  - **(중요) S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망을 통해 통신하며, 이로 인해 S3 트래픽 비용이 대폭 절감됨 **
+  - ** (중요) S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망을 통해 통신하며, 이로 인해 S3 트래픽 비용이 대폭 절감됨 **
   - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
   - Service category: AWS services 선택
   - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
