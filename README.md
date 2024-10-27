@@ -4,7 +4,6 @@
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
   - aws-terraform-cnq-.x.x.zip
-  	- x.x는 버전명, 예를 들어 aws-terraform-cnq-5.0은 5.0 버전을 가르킴
   - host_configuration.tar.gz
   - qumulo-core.deb
 
@@ -53,21 +52,24 @@
 
 ![image](https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6)
 
-# AWS 계정 준비
-- AWS 액세스 포털등을 이용하여 AWS 자격 증명 가져오기
-  - 참고 문서: https://docs.aws.amazon.com/ko_kr/singlesignon/latest/userguide/using-the-portal.html
-- 파워쉘을 열고 `aws sts get-caller-identity` 명령어로 로그인 정상 여부 확인
-  ```powershell 
-  # aws 로그인 정보 확인
-  aws sts get-caller-identity
-  # 출력 예시
-  {
-      "UserId": "AIDXXXXXXXXXX",
-      "Account": "123456789012",
-      "Arn": "arn:aws:iam::123456789012:user/username"
-  }
+# CNQ를 위한 S3 백엔드 스토리지 생성
+- aws-terraform-cnq-.x.x.zip 파일을 원하는 경로에 압축 해제
+- 압축 해제 후 persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
+- 아래를 참고하여 해당 파일의 아래 파라미터만 수정하고 나머지는 default로 유지
+    ```powershell 
+    # 원하는 deployment_name 지정(32글자 이하)
+    deployment_name = "ypark-cnq7231-3nodes-s3be"
+    # 설치 Region 지정
+    aws_region = "ap-northeast-2"
+    # terraform 으로 이 리소스를 destroy 할 수 있도록 설정(운영 환경에서는 true를 권고)
+    prevent_destroy     = false
+    # S3 백엔드 스토리지의 버킷 용량 (최소값은 500TB)
+    soft_capacity_limit = 500
+    
 
 
+
+=============================
 - 
 
 - 
