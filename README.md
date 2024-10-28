@@ -2,7 +2,7 @@
 - CNQ on AWS는 Qumulo의 Cloud 제품으로 단일 파일 시스템, 확장성, 멀티 프로토콜등의 기존 On Premise Qumulo의 장점을 그대로 수용함
 - AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드 스토리지로 활용하여 Scale-out, Scale-in, Scale-up, Scale-down을 모두 지원
 - Global Name Space 기능을 사용하여 다른 CNQ 클러스터, On Premise Qumulo 클러스터등과 네임 스페이스의 확장이 가능함
-- https://qumulo.com/ko/product/aws/
+- CNQ 웹페이지: https://qumulo.com/ko/product/aws/
 # 설치 목표
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
