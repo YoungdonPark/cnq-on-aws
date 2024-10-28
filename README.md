@@ -1,3 +1,6 @@
+# Cloud Native Qumulo란
+- xx
+- xx
 # 설치 목표
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
