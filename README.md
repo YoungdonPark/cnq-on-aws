@@ -173,7 +173,7 @@
       # ***** S3 Bucket Variables
       # s3_bucket_name: "CNQ 설치 파일을 S3 버킷에 업로드" 부분에서 처음 생성한 버킷의 이름
       s3_bucket_name = "ypark-cnq-utilbucket"
-      # s3_bucket_prefix: "CNQ 설치 파일을 S3 버킷에 업로드" 부분에서 처음 생성한 버킷의 하단에 추가한 prefix의 이름으로 하위 폴더로 동
+      # s3_bucket_prefix: "CNQ 설치 파일을 S3 버킷에 업로드" 부분에서 처음 생성한 버킷의 하단에 추가한 prefix의 이름으로 하위 폴더처럼 동작함
       s3_bucket_prefix = "cnq-install-files/"
       # s3_bucket_region:  이 버킷이 구성된 Region
       s3_bucket_region = "ap-northeast-2"
@@ -299,7 +299,7 @@
       + qumulo_private_url_node1        = (known after apply)
 
 - Terraform apply를 실행하여 리소스 생성
-```terraform
+    ```terraform
     # 리소스 생성
     terraform apply
     # 실행 여부 재확인: yes 입력
