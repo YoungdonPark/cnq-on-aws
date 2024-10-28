@@ -1,6 +1,11 @@
 # Cloud Native Qumulo on AWS (CNQ on AWS)는 무엇인가요?
-- CNQ on AWS는 Qumulo의 Cloud 제품으로 단일 파일 시스템, 확장성, 멀티 프로토콜등의 기존 On Premise Qumulo의 장점을 그대로 수용함
-- AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드 스토리지로 활용하여 Scale-out, Scale-in, Scale-up, Scale-down을 모두 지원
+- CNQ on AWS는 Qumulo의 Cloud 제품으로  기존 On Premise Qumulo의 장점을 그대로 수용함
+  - 구성한 모든 저장 공간이 단일 파일 시스템
+  - 최대 1800경의 파일 저장 개수 지원
+  - 단일 경로에 최대 40억개 이상 파일 저장 지원
+  - NFS, SMB, S3, FTP, REST등의 멀티 프로토콜 지원
+- AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드 스토리지로 활용함
+-  Scale-out, Scale-in, Scale-up, Scale-down을 모두 지원
   - Scale-out: CNQ 클러스터의 컴퓨팅 노드를 추가
   - Scale-in: CNQ 클러스터의 컴퓨팅 노드를 제거
   - Scale-up: CNQ 클러스터의 컴퓨팅 노드를 상위 인스턴스로 교체
