@@ -1,5 +1,9 @@
-# Cloud Native Qumulo란
-- xx
+# Cloud Native Qumulo on Amazon Web Service (CNQ on AWS)는 무엇인가요?
+- CNQ on AWS는 물리적인 하드웨어서 동작하던 On Premise Qumulo를 AWS 환경에서 동작하도록 구현한 Cloud 버전의 Qumulo
+- On Premise Qumulo가 지원하는 단일 최대 1800경개(18 quintillion)의 파일 저장 개수, 멀티 프로토콜(NFS, SMB, S3, FTP, REST)등 을 모두 지원
+- CNQ on AWS는 물리적인 하드웨어 상에서 동작하던 On Premise Qumulo를 AWS 환경에서 동작하도록 
+- 
+- 동일한 인터페이스로 클라우드에서도 대규모 데이터를 손쉽게 관리할 수 있는 스토리지 솔루션On Premise 하드웨어  Qumulo (https://qumulo.com/ko/)를 
 - xx
 # 설치 목표
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
