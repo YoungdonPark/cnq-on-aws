@@ -107,16 +107,19 @@
     # S3 백엔드 스토리지의 버킷 용량 (최소값은 500TB, 사용한 용량 만큼만 과금)
     soft_capacity_limit = 500
 - CLI 툴을 열고 aws-terraform-cnq-<x.y>\persistent-storage 경로로 이동
-- 아래의 명령어들을 실행하여 S3 백엔드 스토리지 생성
-- Terraform 초기화
+- 아래의 순서로 Terraform을 이용하여 CNQ가 사용할 S3 백엔드 스토리지 생성
+- Terraform의 작업 환경 초기화
     ```terraform
+    # Terraform의 작업 환경 초기화
     terraform init
-    # 결과 예시 (중요 부분만 발췌)
+    # 결과 예시
+    .... 생략 ....
     Terraform has been successfully initialized!
-- Terraform 의 변경 사항 예측, 영향도 확인, 에러 검증
+- Terraform 변경 사항 예측, 영향도 확인, 에러 검증
     ```terraform
+    # Terraform 변경 사항 예측, 영향도 확인, 에러 검증
     terraform plan
-    #출력 예시 (중요 부분만 발췌)
+    #결과 예시
     .... 생략 ....
     aws_ssm_parameter.bucket-region: Refreshing state... [id=/qumulo/ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV/bucket-region]
     aws_s3_bucket.cnq_bucket[2]: Refreshing state... [id=f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3]
