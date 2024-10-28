@@ -1,5 +1,5 @@
 # Cloud Native Qumulo on Amazon Web Service (CNQ on AWS)는 무엇인가요?
-- CNQ on AWS는 Qumulo의 Cloud 제품으로 단일 파일 시스템, 확장성, 멀티 프로토콜과 같은 기존 On Premise Qumulo의 장점을 그대로 수용함
+- CNQ on AWS는 Qumulo의 Cloud 제품으로 단일 파일 시스템, 확장성, 멀티 프로토콜등의 기존 On Premise Qumulo의 장점을 그대로 수용함
 - AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드 스토리지로 활용하여 구성이 더욱 유연함
 - Scale-out, Scale-in, Scale-up, Scale-down을 모두 지원
 
