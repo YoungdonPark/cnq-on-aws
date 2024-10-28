@@ -133,7 +133,7 @@
     .... 생략 ....
     Plan: 4 to add, 1 to change, 0 to destroy.
 - Terraform apply를 실행하여 리소스 생성
-```terraform
+    ```terraform
     # 리소스 생성
     terraform apply
     # 실행 여부 재확인: yes 입력
@@ -158,7 +158,7 @@
     prevent_destroy = false
     soft_capacity_limit = "500 TB"
 
-- **(중요) 위의 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이것을 텍스트 에디터에 적어두고 저장, CNQ 노드 설치시에 이 값을 적어서, 노드와 S3 백엔드 스토리지를 연동 시킴**
+- (중요)위의 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이것을 텍스트 에디터에 적어두고 저장, CNQ 노드 설치시에 이 값을 적어서, 노드와 S3 백엔드 스토리지를 연동 시킴**
 - AWS 매니지먼트 콘솔이나 AWS CLI등을 이용하여 생성된 4개의 버킷 확인 가능
 
 # CNQ 설치
@@ -368,8 +368,10 @@
     qumulo_private_url_node1 = "https://172.17.17.99"
 
 - 설치가 정상적으로 완료됨
-- 추가적으로 Private subnet, Public subnet 등에 EC2를 설치하고 GUI, CLI 대해 테스트 하거나, SMB, NFS등을 테스트 할 수 있음
+- AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
+- 추가적으로 Private subnet, Public subnet 등에 EC2를 설치하고 GUI, CLI 대해 테스트 하거나, SMB, NFS, S3등을 테스트 할 수 있음
 
+#<마침>
 
 =============================
 - 
