@@ -1,10 +1,4 @@
-<a href="images/aws목표구성.png">
-  <img src="images/aws목표구성.png" alt="aws목표구성" width="50%">
-</a>
 
-<a href="images/cnq ec2.png">
-  <img src="images/cnq ec2.png" alt="cnq ec2" width="50%">
-</a>
 
 <a href="images/cnq install file.png">
   <img src="images/cnq install file.png" alt="cnq install file" width="50%">
@@ -41,8 +35,7 @@
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 - 목표 구성도
   - 아래 구성도에서 CNQ와 S3 백엔드 저장소를 제외하고는 CNQ를 구성하기 전에 미리 구성이 되어 있어야 함
-
-
+    - <a href="images/aws목표구성.png"> <img src="images/aws목표구성.png" alt="aws목표구성" width="50%"> </a>
 
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
@@ -421,7 +414,7 @@
 
 - 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨
 - AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
-  - ![cnq ec2](https://github.com/user-attachments/assets/8cc6f92e-68cb-4d54-8a5e-8a47a5c1f8a8)
+  - <a href="images/cnq ec2.png"> <img src="images/cnq ec2.png" alt="cnq ec2" width="50%"> </a>
 
 
 - 설치를 마친 뒤 Subnet,EC2등을 알맞게 추가 구성하고 Qumulo GUI, Qumulo CLI에 대한 접근 테스트와 SMB, NFS, S3등을 테스트 할 수 있음
