@@ -65,7 +65,7 @@
   - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
     - <img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
   - Route tables에서 CNQ를 설치할 Private subnet 선택
-    - **(중요) CNQ는 Private subnet에 위치할 예정이며, 이 Private subnet에는 CNQ외에 다른 리소스가 없음, 그러므로 생성되는 모든 S3 트래픽은 S3 백엔드 저장소를 위한 트래픽이므로 인터넷을 거칠 이유가 없음**
+    - **(중요) CNQ는 Private subnet에 위치할 예정이며, 이 Private subnet에는 CNQ외에 다른 리소스가 없음, 그러므로 생성되는 모든 S3 트래픽은 S3 백엔드 저장소를 위한 트래픽이므로 인터넷을 거칠 이유가 없으며, 만약 인터넷을 거치게 된다면, S3 트래픽으로 인한 비용이 발생하게 됨**
     - ![s3 gw endpoint rt지정](https://github.com/user-attachments/assets/ac8e2650-b563-4743-bc3c-5ed70b04bbdf)
 
   - Policy는 Full access 선택 
