@@ -38,7 +38,9 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
-  - <img src="https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6" width="20%">
+  - <img src="https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6" width="50%">
+
+![cnq install file](https://github.com/user-attachments/assets/887290dd-db83-45c7-9e38-26ce785578dd)
 
 
 # 사전 필요 AWS 구성
@@ -62,6 +64,12 @@
     - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
   - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
     - <img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
+  - Route tables에서 CNQ를 설치할 Private subnet 선택
+    - **(중요) CNQ는 Private subnet에 위치할 예정이며, 이 Private subnet에는 CNQ외에 다른 리소스가 없음, 그러므로 생성되는 모든 S3 트래픽은 S3 백엔드 저장소를 위한 트래픽이므로 인터넷을 거칠 이유가 없음**
+    - ![s3 gw endpoint rt지정](https://github.com/user-attachments/assets/ac8e2650-b563-4743-bc3c-5ed70b04bbdf)
+
+  - Policy는 Full access 선택 
+  
   - S3 Gateway endpoint 동작 검증 방법
     - https://repost.aws/knowledge-center/vpc-check-traffic-flow
 
