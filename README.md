@@ -38,7 +38,7 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
-  - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="65%"> </a>
+  - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="55%"> </a>
 
 # 사전 필요 AWS 구성
 - 사전 구성이 필요한 리소스
@@ -60,9 +60,9 @@
   - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
     - <a href="images/s3 gw endpoint-service.png"> <img src="images/s3 gw endpoint-service.png" alt="s3 gw endpoint-service" width="25%"> </a>
   - Type에서 Gateway 선택 및 VPC 선택
-    - <a href="images/s3 gw endpoint - type, vpc.png"> <img src="images/s3 gw endpoint - type, vpc.png" alt="s3 gw endpoint - type, vpc" width="60%"> </a>
+    - <a href="images/s3 gw endpoint - type, vpc.png"> <img src="images/s3 gw endpoint - type, vpc.png" alt="s3 gw endpoint - type, vpc" width="65%"> </a>
   - Route tables에서 CNQ를 설치할 Private subnet 선택
-    - <a href="images/s3 gw endpoint rt지정.png"> <img src="images/s3 gw endpoint rt지정.png" alt="s3 gw endpoint rt지정" width="60%"> </a>
+    - <a href="images/s3 gw endpoint rt지정.png"> <img src="images/s3 gw endpoint rt지정.png" alt="s3 gw endpoint rt지정" width="65%"> </a>
   - Policy는 Full access 선택
   - Create endpoint 클릭하여 S3 Gateway endpoint 생성
   - S3 Gateway endpoint 동작 검증 방법
@@ -390,7 +390,7 @@
     qumulo_private_url = "https://<custom.dns>"
     qumulo_private_url_node1 = "https://172.17.17.99"
 
-- 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨
+- 설치가 정상적으로 완료되면 위와 같은 형태로 결과가 출력됨
 - AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
   - <a href="images/cnq ec2.png"> <img src="images/cnq ec2.png" alt="cnq ec2" width="50%"> </a>
 
