@@ -38,13 +38,10 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
-
-
-![cnq install file](https://github.com/user-attachments/assets/9dcecd4e-0cbb-40c9-9d43-0407ed1a5b41)
-
+  - <img src="https://github.com/user-attachments/assets/9dcecd4e-0cbb-40c9-9d43-0407ed1a5b4" width="30%">
 
 # 사전 필요 AWS 구성
-- 구성이 필요한 리소스
+- 사전 구성이 필요한 리소스
   - VPC 1개
     - Internet gateway 1개
     - S3 Gateway Endpoint 1개
@@ -65,8 +62,8 @@
   - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
     - <img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
   - Route tables에서 CNQ를 설치할 Private subnet 선택
-    
-    - ![s3 gw endpoint rt지정](https://github.com/user-attachments/assets/ac8e2650-b563-4743-bc3c-5ed70b04bbdf)
+    <!--s3 gw endpoint rt지정-->
+    -<img src="https://github.com/user-attachments/assets/ac8e2650-b563-4743-bc3c-5ed70b04bbdf)" width="50%">
   - Policy는 Full access 선택  
   - S3 Gateway endpoint 동작 검증 방법
     - https://repost.aws/knowledge-center/vpc-check-traffic-flow
