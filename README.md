@@ -114,7 +114,7 @@
     ```powershell 
     # Terraform 버전 확인
     terraform -version
-    # 결과과 예시
+    # 결과 예시
     Terraform v1.9.8
     on windows_amd64
 
@@ -123,7 +123,8 @@
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
   - Terraform은 terraform apply를 실행하는 경로의 terraform.tfvars 파일을 찾아서 리소스를 생성/변경/삭제함  
-  - S3 백엔드 저장소 생성을 위한 terraform.tfvasr와 CNQ 클러스터 생성을 위한 terraform.tfvars가 있음
+  - S3 백엔드 저장소 생성을 위한 terraform.tfvars는 aws-terraform-cnq-<x.y>\persistent-storage 경로에 위치 함
+  - 와 CNQ 클러스터 생성을 위한 terraform.tfvars는 aws-terraform-cnq-<x.y>\ 경로에 위치 함
 
 - 아래 예시를 참고하여 terraform.tfvars 파일의 변수 수정 후 저장
     ```terraform
