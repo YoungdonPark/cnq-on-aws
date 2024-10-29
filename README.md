@@ -9,12 +9,14 @@
 - Global Name Space 기능을 사용하여 다른 CNQ 클러스터, On Premise Qumulo 클러스터등과 네임 스페이스의 확장이 가능함
 - CNQ 웹페이지: https://qumulo.com/ko/product/aws/
 
+
   
 # 설치 목표 및 목표 구성도
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 - 목표 구성도
   - 아래 구성도에서 CNQ와 S3 백엔드 저장소를 제외하고는 CNQ를 구성하기 전에 미리 구성이 되어 있어야 함
+
 
 
 # 설치 파일 준비
@@ -38,7 +40,6 @@
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
 
-<img src="https://github.com/user-attachments/assets/9dcecd4e-0cbb-40c9-9d43-0407ed1a5b4" width="50%">
 
 # 사전 필요 AWS 구성
 - 사전 구성이 필요한 리소스
