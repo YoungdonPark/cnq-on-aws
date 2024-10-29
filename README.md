@@ -398,8 +398,7 @@
 
 - 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨
 - AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
-  - 이미지 xxxxxxxxxx
-
+  - ![cnq ec2](https://github.com/user-attachments/assets/8cc6f92e-68cb-4d54-8a5e-8a47a5c1f8a8)
 
 
 - 설치를 마친 뒤 Subnet,EC2등을 알맞게 추가 구성하고 Qumulo GUI, Qumulo CLI에 대한 접근 테스트와 SMB, NFS, S3등을 테스트 할 수 있음
