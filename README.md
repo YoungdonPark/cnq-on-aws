@@ -13,7 +13,8 @@
 # 설치 목표 및 목표 구성도
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
-- 목표 구성도 (CNQ와 S3 백 엔드 저장소로 설정) 
+- 목표 구성도
+  - **(중요) 아래 구성도에서 CNQ와 S3 백 엔드 저장소를 제외하고는 CNQ를 구성하기 전에 미리 구성이 되어 있어야 함**
   - <img src="https://github.com/user-attachments/assets/6e89699d-59fd-4fb7-9eaa-9a6d318a5617" width="50%">
 
 
