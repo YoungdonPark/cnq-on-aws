@@ -38,7 +38,7 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
-  - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="70%"> </a>
+  - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="65%"> </a>
 
 # 사전 필요 AWS 구성
 - 사전 구성이 필요한 리소스
@@ -182,7 +182,7 @@
     prevent_destroy = false
     soft_capacity_limit = "500 TB"
 
-- **(중요)위 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 하며, 이 값을 CNQ 구성 2/2단계에도 사용함**
+- **(중요)위 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"은 S3 백엔드 저장소의 deployment_unique_name이며, 이 값을 CNQ 구성 2/2단계에도 사용함**
 - AWS 매지니먼트 콘솔에서도 이 값이 포함되어 생성된 4개의 버킷을 확인 할 수 있음
 
 # CNQ 구성 2/2단계 -  클러스터 구성
@@ -394,8 +394,7 @@
 - AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
   - <a href="images/cnq ec2.png"> <img src="images/cnq ec2.png" alt="cnq ec2" width="50%"> </a>
 
-
-- 설치를 마친 뒤 Subnet,EC2등을 알맞게 추가 구성하고 Qumulo GUI, Qumulo CLI에 대한 접근 테스트와 SMB, NFS, S3등을 테스트 할 수 있음
+- 설치를 마친 뒤 EC2를 추가 구성하여 Qumulo GUI, Qumulo CLI에 대한 접근 테스트와 SMB, NFS, S3등을 테스트 할 수 있음
 
 <!--
 =============================
