@@ -72,7 +72,8 @@
 - 목적지:api.missionq.qumulo.com, 포트: 443
 - 목적지:missionq-dumps.s3.amazonaws.com	, 포트: 443
 - 목적지:monitor.qumulo.com, 포트: 443
-
+  - 관련 링크: https://docs.qumulo.com/administrator-guide/monitoring-and-metrics/enabling-cloud-based-monitoring-remote-support.html
+  
   
 # 명령어 실행 도구 및 Terraform 변수 파일 편집 도구
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
@@ -113,6 +114,7 @@
 # CNQ를 위한 S3 백엔드 저장소 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
+  - **(중요)S3 백엔드 저장소 생성을 위한 tfvars의 경로는 aws-terraform-cnq-<x.y> 가 아니라 aws-terraform-cnq-<x.y>\persistent-storage\ 인것에 유의**
 - 아래 예시를 참고하여 변수 수정
     ```terraform
     # deployment_name: 원하는 deployment_name 지정(32글자 이하)
@@ -174,12 +176,13 @@
     prevent_destroy = false
     soft_capacity_limit = "500 TB"
 
-- (중요)위의 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이것을 텍스트 에디터에 적어두고 저장, CNQ 노드 설치시에 이 값을 적어서, 노드와 S3 백엔드 저장소를 연동 시킴**
+-**(중요)위의 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이 값을 반드시 텍스트 에디터등에 메모해두는 것을 권고, CNQ 클러스터 구성시에 이 값을 적어서, 노드와 S3 백엔드 저장소를 연동 시킴**
 - AWS 매니지먼트 콘솔이나 AWS CLI등을 이용하여 생성된 4개의 버킷 확인 가능
 
 
 # CNQ 클러스터 구성 (최종 단계)
-- aws-terraform-cnq-<x.y> 경로의 terraform.tfvars 파일을 텍스트 에디터로 열기
+- aws-terraform-cnq-<x.y>\ 경로의 terraform.tfvars 파일을 텍스트 에디터로 열기
+- **(중요)CNQ 클러스터 구성을 위한 tfvars의 경로는 aws-terraform-cnq-<x.y>\persistent-storage\가 아니라 aws-terraform-cnq-<x.y> 인것에 유의**
 - 아래 예시를 참고하여 해당 파일의 아래에 나열된 변수만 수정하고 나머지는 default 값으로 유지
     ```terraform
       # ****************************** Required ******************************
