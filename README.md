@@ -3,21 +3,19 @@
 - 노드를 늘릴수록 Scale-out한 성능, 구성한 모든 저장 공간이 단일 파일 시스템
   - 클러스터에 최대 1800경의 파일 저장 가능, 단일 경로에 최대 43억개 파일 저장 가능
   - NFS, SMB, S3, FTP, REST등의 멀티 프로토콜 지원
-- AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드 스토리지로 활용하여 유연한 구성 변경 가능
+- AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드 저장소로 활용하여 유연한 구성 변경 가능
   - Scale-out/in: CNQ 클러스터의 컴퓨팅 노드를 추가/제거
   - Scale-up/down: CNQ 클러스터의 컴퓨팅 노드를 상위/하위 인스턴스로 교체	
 - Global Name Space 기능을 사용하여 다른 CNQ 클러스터, On Premise Qumulo 클러스터등과 네임 스페이스의 확장이 가능함
 - CNQ 웹페이지: https://qumulo.com/ko/product/aws/
 
-
-
-
-
+  
 # 설치 목표 및 목표 구성도
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
-- 목표 구성도
+- 목표 구성도 (CNQ와 S3 백 엔드 저장소로 설정) 
   - <img src="https://github.com/user-attachments/assets/6e89699d-59fd-4fb7-9eaa-9a6d318a5617" width="50%">
+
 
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
@@ -104,7 +102,7 @@
     Terraform v1.9.8
     on windows_amd64
 
-# CNQ를 위한 S3 백엔드 스토리지 생성
+# CNQ를 위한 S3 백엔드 저장소 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
 - 아래 예시를 참고하여 변수 수정
@@ -115,13 +113,13 @@
     aws_region = "ap-northeast-2"
     # prevent_destroy: 이 값이 True이면 "terraform destory"를 수행하여도 버킷이 삭제되지 않아 실수를 방지 할 수 있음, 운영을 위한 배포시에는 이 값을 True로 하는 것을 권고, 이 값이 false이면 "terraform destory" 명령어로 데이터가 있는 버킷도 모두 삭제됨
     prevent_destroy     = false
-    # soft_capacity_limit: S3 백엔드 스토리지의 용량, 설정상의 용량으로 과금과는 무관(과금은 리소스의 사용량과 상관), TB 단위로 지정하며 최소 500TB에서 최대 10000TB(10PB)까지 설정가능함, 이 후 필요시 늘릴 수 있음
+    # soft_capacity_limit: S3 백엔드 저장소의 용량, 설정상의 용량으로 과금과는 무관(과금은 리소스의 사용량과 상관), TB 단위로 지정하며 최소 500TB에서 최대 10000TB(10PB)까지 설정가능함, 이 후 필요시 늘릴 수 있음
     soft_capacity_limit = 500
     # tags: 필요시 수정
     tags = null
 
 - CLI 툴을 열고 aws-terraform-cnq-<x.y>\persistent-storage 경로로 이동
-- 아래의 순서로 Terraform을 이용하여 CNQ가 사용할 S3 백엔드 스토리지 생성
+- 아래의 순서로 Terraform을 이용하여 CNQ가 사용할 S3 백엔드 저장소 생성
 - Terraform 작업 환경 초기화
     ```terraform
     # Terraform 작업 환경 초기화
@@ -168,7 +166,7 @@
     prevent_destroy = false
     soft_capacity_limit = "500 TB"
 
-- (중요)위의 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이것을 텍스트 에디터에 적어두고 저장, CNQ 노드 설치시에 이 값을 적어서, 노드와 S3 백엔드 스토리지를 연동 시킴**
+- (중요)위의 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이것을 텍스트 에디터에 적어두고 저장, CNQ 노드 설치시에 이 값을 적어서, 노드와 S3 백엔드 저장소를 연동 시킴**
 - AWS 매니지먼트 콘솔이나 AWS CLI등을 이용하여 생성된 4개의 버킷 확인 가능
 
 # CNQ 설치
@@ -215,7 +213,7 @@
       q_cluster_version = "7.2.3.1"
 
       # ***** Qumulo Cluster Config Options *****
-      # q_persistent_storage_deployment_unique_name: S3 백엔드 스토리지 생성 시 부여된 deployment_unique_name 입력
+      # q_persistent_storage_deployment_unique_name: S3 백엔드 저장소 생성 시 부여된 deployment_unique_name 입력
       q_persistent_storage_deployment_unique_name = "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"
       # q_persistent_storage_type: hot_s3_int(기본값), hot_s3_std, cold_s3_ia, cold_s3_gir 입력이 가능하며, 많은 경우 hot_s3_int 사용을 권장
       q_persistent_storage_type = "hot_s3_int"
