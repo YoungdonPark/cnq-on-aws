@@ -122,9 +122,9 @@
 # CNQ를 위한 S3 백엔드 저장소 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
-  - Terraform은 terraform apply를 실행하는 경로의 terraform.tfvars 파일을 찾아서 리소스를 생성/변경/삭제함  
+  - Terraform은 terraform apply를 실행하는 경로의 terraform.tfvars 파일을 자동으로 찾아 실행됨  
   - S3 백엔드 저장소 생성을 위한 terraform.tfvars는 aws-terraform-cnq-<x.y>\persistent-storage 경로에 위치 함
-  - 와 CNQ 클러스터 생성을 위한 terraform.tfvars는 aws-terraform-cnq-<x.y>\ 경로에 위치 함
+  - CNQ 클러스터 생성을 위한 terraform.tfvars는 aws-terraform-cnq-<x.y>\ 경로에 위치 함
 
 - 아래 예시를 참고하여 terraform.tfvars 파일의 변수 수정 후 저장
     ```terraform
@@ -187,9 +187,9 @@
     prevent_destroy = false
     soft_capacity_limit = "500 TB"
 
-- **(중요)위 에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 함**
+- **(중요)위 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 함**
 - **(중요)이 값을 반드시 텍스트 에디터등에 메모하는 것을 권고**
-- AWS 매지니먼트 콘솔(AWS 웹페이지)에서도 이 값이 포함되어 생성된 4개의 버킷을 확인 할 수 있음
+- AWS 매지니먼트 콘솔에서도 이 값이 포함되어 생성된 4개의 버킷을 확인 할 수 있음
 
 # CNQ 클러스터 구성 (최종 단계)
 - aws-terraform-cnq-<x.y>\ 경로의 terraform.tfvars 파일을 텍스트 에디터로 열기
@@ -396,8 +396,12 @@
     qumulo_private_url = "https://<custom.dns>"
     qumulo_private_url_node1 = "https://172.17.17.99"
 
-- 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨-
-- AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인   
+- 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨
+- AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
+  - 이미지 xxxxxxxxxx
+
+
+
 - 설치를 마친 뒤 Subnet,EC2등을 알맞게 추가 구성하고 Qumulo GUI, Qumulo CLI에 대한 접근 테스트와 SMB, NFS, S3등을 테스트 할 수 있음
 
 <!--
