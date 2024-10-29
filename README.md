@@ -48,17 +48,17 @@
       - NAT gateway 1개
     - Private subnet 1개
 - 라우팅
- - Public subnet의 디폴트 라우팅을 위한 목적지: Internet gateway
- - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
- - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
+  - Public subnet의 디폴트 라우팅을 위한 목적지: Internet gateway
+  - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
+  - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
 - S3 Gateway endpoint 설정
   - **(중요) S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망을 통해 통신하며, 이로 인해 S3 트래픽 비용이 대폭 절감됨**
   - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
   - Service category: AWS services 선택
   - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
-    - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
+<img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
   - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
-    - <img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
+<img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
   - S3 Gateway endpoint 동작 검증 방법
     - https://repost.aws/knowledge-center/vpc-check-traffic-flow
       
