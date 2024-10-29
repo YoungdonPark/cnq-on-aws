@@ -1,4 +1,4 @@
-# Cloud Native Qumulo on AWS(CNQ on AWS)는 무엇인가요?
+# 1. Cloud Native Qumulo on AWS(CNQ on AWS)는 무엇인가요?
 - CNQ on AWS는 Qumulo의 Cloud 제품으로 기존 On Premise Qumulo의 장점을 그대로 수용함
 - 노드를 늘릴수록 Scale-out한 성능, 구성한 모든 저장 공간이 단일 파일 시스템
   - 클러스터에 최대 1800경의 파일 저장 가능, 단일 경로에 최대 43억개 파일 저장 가능
@@ -11,21 +11,21 @@
 
 
   
-# 설치 목표 및 목표 구성도
+# 2. 설치 목표 및 목표 구성도
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 - 목표 구성도
   - 아래 구성도에서 CNQ와 S3 백엔드 저장소를 제외하고는 CNQ를 구성하기 전에 미리 구성이 되어 있어야 함
     - <a href="images/aws목표구성.png"> <img src="images/aws목표구성.png" alt="aws목표구성" width="50%"> </a>
 
-# 설치 파일 준비
+# 3. CNQ 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
   - aws-terraform-cnq-<x.y>.zip (x.y는 버전)
   - host_configuration.tar.gz
   - qumulo-core.deb
 
 
-# CNQ 설치 파일을 S3 버킷(CNQ를 위한 Util 버킷)에 업로드
+# 4. CNQ 설치 파일을 S3 버킷(CNQ를 위한 Util 버킷)에 업로드
 - **(중요) 이 과정에서 생성하는 S3 버킷은 CNQ를 위한 S3 백엔드 저장소와는 별개이며, 단순히 설치 파일을 업로드 하기 위한 공간**
 - AWS 매니지먼트 콘솔에 접속 후 S3 메뉴로 이동
 - 아래 예시와 같이 버킷 생성 및 파일 업로드
@@ -38,9 +38,9 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
-  - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="55%"> </a>
+  - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="45%"> </a>
 
-# 사전 필요 AWS 구성
+# 5. 필요한 AWS 사전 구성
 - 사전 구성이 필요한 리소스
   - VPC 1개
     - Internet gateway 1개
@@ -49,12 +49,12 @@
     - Public subnet 1개
       - NAT gateway 1개
     - Private subnet 1개
-- 라우팅
+- 리소스들 간의 라우팅
   - Public subnet의 디폴트 라우팅을 위한 목적지: Internet gateway
   - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
   - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
 - S3 Gateway endpoint 설정
-  - S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망으로 통신하게 되어 S3 트래픽 비용이 대폭 절감됨
+  - **(중요)S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망으로 통신하게 되어 S3 트래픽 비용이 대폭 절감됨**
   - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
   - Service category: AWS services 선택
   - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
@@ -69,7 +69,7 @@
     - https://repost.aws/knowledge-center/vpc-check-traffic-flow
 
       
-# CNQ 설치 및 모니터링을 위한 방화벽 정책 허용
+# 6. CNQ 설치 및 모니터링을 위한 방화벽 정책 허용
 - 목적지:api.nexus.qumulo.com, 포트: 443
 - 목적지:ep1.qumulo.com, 포트: 443
 - 목적지:api.missionq.qumulo.com, 포트: 443
@@ -78,12 +78,12 @@
   - 관련 링크: https://docs.qumulo.com/administrator-guide/monitoring-and-metrics/enabling-cloud-based-monitoring-remote-support.html
   
   
-# 명령어 실행 도구 및 Terraform 변수 파일 편집 도구
+# 7. 명령어 실행 도구 및 Terraform 변수 파일 편집 도구
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
 - 또는 윈도우즈 PowerShell과 같은 기본 CLI 툴, 메모장등의 텍스트 에디터 사용
 
   
-# 필요 어플리케이션 설치
+# 8. 필요 어플리케이션 설치
 - 설치 필요한 어플리케이션 목록
   - CLI 기반의 패키지 관리 툴
   - AWS CLI
@@ -114,7 +114,7 @@
     on windows_amd64
 
 
-# CNQ 구성 1/2단계 -  S3 백엔드 저장소 생성
+# 9. CNQ 구성 1/2단계 -  S3 백엔드 저장소 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
   - Terraform은 terraform apply를 실행하는 경로의 terraform.tfvars 파일을 자동으로 찾아 실행됨  
@@ -182,10 +182,10 @@
     prevent_destroy = false
     soft_capacity_limit = "500 TB"
 
-- **(중요)위 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"은 S3 백엔드 저장소의 deployment_unique_name이며, 이 값을 CNQ 구성 2/2단계에도 사용함**
+- **(중요)위 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"은 S3 백엔드 저장소의 deployment_unique_name이며, 이 값을 CNQ 구성 2/2단계에서 사용함**
 - AWS 매지니먼트 콘솔에서도 이 값이 포함되어 생성된 4개의 버킷을 확인 할 수 있음
 
-# CNQ 구성 2/2단계 -  클러스터 구성
+# 10. CNQ 구성 2/2단계 -  클러스터 구성
 - aws-terraform-cnq-<x.y>\ 경로의 terraform.tfvars 파일을 텍스트 에디터로 열기
 
 - 아래 예시를 참고하여 terraform.tfvars 변수 수정 후 저장
