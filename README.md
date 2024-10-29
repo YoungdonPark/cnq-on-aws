@@ -15,7 +15,6 @@
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 - 목표 구성도
   - 아래 구성도에서 CNQ와 S3 백엔드 저장소를 제외하고는 CNQ를 구성하기 전에 미리 구성이 되어 있어야 함
-  - <img src="https://github.com/user-attachments/assets/c8dec26b-4460-412d-99b2-e7296d1bf440" width="50%">
 
 
 # 설치 파일 준비
