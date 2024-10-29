@@ -24,6 +24,7 @@
   - host_configuration.tar.gz
   - qumulo-core.deb
 
+
 # CNQ 설치 파일을 S3 버킷에 업로드
 - **(중요) 이 과정에서 생성하는 S3 버킷은 CNQ를 위한 S3 백 엔드 저장소와는 별개이며, 단순히 설치 파일을 업로드 하기 위한 공간
 - AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
@@ -38,6 +39,7 @@
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
   - <img src="https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6" width="20%">
+
 
 # 사전 필요 AWS 구성
 - 구성이 필요한 리소스
@@ -62,6 +64,7 @@
     - <img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
   - S3 Gateway endpoint 동작 검증 방법
     - https://repost.aws/knowledge-center/vpc-check-traffic-flow
+
       
 # CNQ 설치 및 모니터링을 위한 방화벽 정책 허용
 - 목적지:api.nexus.qumulo.com, 포트: 443
@@ -69,10 +72,12 @@
 - 목적지:api.missionq.qumulo.com, 포트: 443
 - 목적지:missionq-dumps.s3.amazonaws.com	, 포트: 443
 - 목적지:monitor.qumulo.com, 포트: 443
+
   
 # 명령어 실행 도구 및 Terraform 변수 파일 편집 도구
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
 - 또는 윈도우즈 PowerShell과 같은 기본 CLI 툴, 메모장등의 텍스트 에디터 사용
+
   
 # 필요 어플리케이션 설치
 - 설치 필요한 어플리케이션 목록
@@ -103,6 +108,7 @@
     # 결과과 예시
     Terraform v1.9.8
     on windows_amd64
+
 
 # CNQ를 위한 S3 백엔드 저장소 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
@@ -171,7 +177,8 @@
 - (중요)위의 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이것을 텍스트 에디터에 적어두고 저장, CNQ 노드 설치시에 이 값을 적어서, 노드와 S3 백엔드 저장소를 연동 시킴**
 - AWS 매니지먼트 콘솔이나 AWS CLI등을 이용하여 생성된 4개의 버킷 확인 가능
 
-# CNQ 설치
+
+# CNQ 클러스터 구성 (최종 단계)
 - aws-terraform-cnq-<x.y> 경로의 terraform.tfvars 파일을 텍스트 에디터로 열기
 - 아래 예시를 참고하여 해당 파일의 아래에 나열된 변수만 수정하고 나머지는 default 값으로 유지
     ```terraform
