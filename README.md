@@ -187,7 +187,8 @@
     prevent_destroy = false
     soft_capacity_limit = "500 TB"
 
-- **(중요)위 에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이 값을 반드시 텍스트 에디터등에 메모하는 것을 권고**
+- **(중요)위 에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 함**
+- **(중요)이 값을 반드시 텍스트 에디터등에 메모하는 것을 권고**
 - AWS 매지니먼트 콘솔(AWS 웹페이지)에서도 이 값이 포함되어 생성된 4개의 버킷을 확인 할 수 있음
 
 # CNQ 클러스터 구성 (최종 단계)
