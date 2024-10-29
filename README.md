@@ -32,7 +32,7 @@
   - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
    - ypark-cnq-utilbucket : 원하는 이름 지정
    - cnq-install-files/ : 원하는 이름 지정
-   - qumulo-core-install/ : 정확하게 입력
+   - qumulo-core-install/ : **정확하게 입력**
    - 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
 - 전달 받은 qumulo-core.deb 파일을 CNQ 버전 디렉토리에 업로드
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
