@@ -29,9 +29,9 @@
 
 # CNQ 설치 파일을 S3 버킷에 업로드
 - **(중요) 이 과정에서 생성하는 S3 버킷은 CNQ를 위한 S3 백엔드 저장소와는 별개이며, 단순히 설치 파일을 업로드 하기 위한 공간**
-- AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
+- AWS 매니지먼트 콘솔에 접속 후 S3 메뉴로 이동
 - 아래 예시와 같이 버킷 생성 및 파일 업로드
-  - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
+  - (예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
    - ypark-cnq-utilbucket : 원하는 이름 지정
    - cnq-install-files/ : 원하는 이름 지정
    - qumulo-core-install/ : 정확하게 입력
@@ -59,7 +59,7 @@
   - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
   - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
 - S3 Gateway endpoint 설정
-  - **(중요) S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망을 통해 통신하며, 이로 인해 S3 트래픽 비용이 대폭 절감됨**
+  - **(중요) S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망으로 통신하게 되어 S3 트래픽 비용이 대폭 절감됨**
   - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
   - Service category: AWS services 선택
   - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
@@ -67,11 +67,9 @@
   - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
     - <img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
   - Route tables에서 CNQ를 설치할 Private subnet 선택
-    - **(중요) CNQ는 Private subnet에 위치할 예정이며, 이 Private subnet에는 CNQ외에 다른 리소스가 없음, 그러므로 생성되는 모든 S3 트래픽은 S3 백엔드 저장소를 위한 트래픽이므로 인터넷을 거칠 이유가 없으며, 만약 인터넷을 거치게 된다면, S3 트래픽으로 인한 비용이 발생하게 됨**
+    
     - ![s3 gw endpoint rt지정](https://github.com/user-attachments/assets/ac8e2650-b563-4743-bc3c-5ed70b04bbdf)
-
-  - Policy는 Full access 선택 
-  
+  - Policy는 Full access 선택  
   - S3 Gateway endpoint 동작 검증 방법
     - https://repost.aws/knowledge-center/vpc-check-traffic-flow
 
@@ -92,9 +90,9 @@
   
 # 필요 어플리케이션 설치
 - 설치 필요한 어플리케이션 목록
- - CLI 기반의 패키지 관리 툴
- - AWS CLI
- - Terraform
+  - CLI 기반의 패키지 관리 툴
+  - AWS CLI
+  - Terraform
 - Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
  - Chocolatey (https://chocolatey.org/install) 방문 후 설치 안내 참고하여 설치
  - CLI 툴을 열고 아래 명령어 수행
@@ -124,8 +122,9 @@
 # CNQ를 위한 S3 백엔드 저장소 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
-  - **(중요)S3 백엔드 저장소 생성을 위한 tfvars의 경로는 aws-terraform-cnq-<x.y> 가 아니라 aws-terraform-cnq-<x.y>\persistent-storage\ 인것에 유의**
-  - **(중요)Terraform은 terraform apply를 실행하는 경로의 terraform.tfvars 파일을 찾아서 리소스를 생성/변경/삭제함**
+  - Terraform은 terraform apply를 실행하는 경로의 terraform.tfvars 파일을 찾아서 리소스를 생성/변경/삭제함  
+  - S3 백엔드 저장소 생성을 위한 terraform.tfvasr와 CNQ 클러스터 생성을 위한 terraform.tfvars가 있음
+
 - 아래 예시를 참고하여 terraform.tfvars 파일의 변수 수정 후 저장
     ```terraform
     # deployment_name: 원하는 deployment_name 지정(32글자 이하)
@@ -187,13 +186,12 @@
     prevent_destroy = false
     soft_capacity_limit = "500 TB"
 
--**(중요)위의 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이 값을 반드시 텍스트 에디터등에 메모해두는 것을 권고**
--**(중요)CNQ 클러스터 구성시에 이 값을 적어서, 노드와 S3 백엔드 저장소를 연동 시킴**
--**(중요)AWS 매지니먼트 콘솔(AWS 웹페이지)에서도 이 값이 포함되어 생성된 4개의 버킷을 확인 할 수 있음**
+- **(중요)위 에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이 값을 반드시 텍스트 에디터등에 메모하는 것을 권고**
+- AWS 매지니먼트 콘솔(AWS 웹페이지)에서도 이 값이 포함되어 생성된 4개의 버킷을 확인 할 수 있음
 
 # CNQ 클러스터 구성 (최종 단계)
 - aws-terraform-cnq-<x.y>\ 경로의 terraform.tfvars 파일을 텍스트 에디터로 열기
-- **(중요)CNQ 클러스터 구성을 위한 tfvars의 경로는 aws-terraform-cnq-<x.y>\persistent-storage\가 아니라 aws-terraform-cnq-<x.y> 인것에 유의**
+
 - 아래 예시를 참고하여 terraform.tfvars 변수 수정 후 저장
     ```terraform
       # ****************************** Required ******************************
@@ -342,8 +340,6 @@
     #결과 예시
     .... 생략 ....
     module.qprovisioner.null_resource.provisioner_status[0] (local-exec): Waiting for node 1 to run Qumulo Core. Package location: s3://ypark-cnq-utilbucket/cnq-install-files/qumulo-core-install/7.2.3.1/
-    module.qprovisioner.null_resource.provisioner_status[0]: Still creating... [2m20s elapsed]
-    module.qprovisioner.null_resource.provisioner_status[0] (local-exec): Waiting for node 1 to run Qumulo Core. Package location: s3://ypark-cnq-utilbucket/cnq-install-files/qumulo-core-install/7.2.3.1/
     module.qprovisioner.null_resource.provisioner_status[0]: Still creating... [2m30s elapsed]
     module.qprovisioner.null_resource.provisioner_status[0] (local-exec): Qumulo Core running on node 1. Waiting for other nodes to run Qumulo Core.
     module.qprovisioner.null_resource.provisioner_status[0]: Still creating... [2m40s elapsed]
@@ -399,15 +395,17 @@
     qumulo_private_url_node1 = "https://172.17.17.99"
 
 - 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨-
-- AWS 매니지먼트 콘솔(웹페이지)의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인   
+- AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인   
 - 설치를 마친 뒤 Subnet,EC2등을 알맞게 추가 구성하고 Qumulo GUI, Qumulo CLI에 대한 접근 테스트와 SMB, NFS, S3등을 테스트 할 수 있음
 
 <!--
 =============================
 
+- **(중요) CNQ는 Private subnet에 위치할 예정이며, 이 Private subnet에는 CNQ외에 다른 리소스가 없음, 그러므로 생성되는 모든 S3 트래픽은 S3 백엔드 저장소를 위한 트래픽이므로 인터넷을 거칠 이유가 없으며, 만약 인터넷을 거치게 된다면, S3 트래픽으로 인한 비용이 발생하게 됨**
+
  Terraform 결과에도 CNQ클러스터의 deployment_unique_name이 출력됨, deployment_unique_name = "ypark-cnq7231-3nodes-OW6ELGCN9TX"- 
 
-
+- CNQ 클러스터 구성을 위한 tfvars의 경로는 aws-terraform-cnq-<x.y>\persistent-storage\가 아니라 aws-terraform-cnq-<x.y> 인것에 유의**
 
 - # AWS 로그인
 - AWS 액세스 포털등을 이용하여 로그인
