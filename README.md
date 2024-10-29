@@ -1,11 +1,11 @@
 # Cloud Native Qumulo on AWS(CNQ on AWS)는 무엇인가요?
 - CNQ on AWS는 Qumulo의 Cloud 제품으로 기존 On Premise Qumulo의 장점을 그대로 수용함
-  - 노드를 늘릴수록 Scale-out한 성능, 구성한 모든 저장 공간이 단일 파일 시스템
- - 클러스터에 최대 1800경의 파일 저장 가능, 단일 경로에 최대 43억개 파일 저장 가능
+- 노드를 늘릴수록 Scale-out한 성능, 구성한 모든 저장 공간이 단일 파일 시스템
+  - 클러스터에 최대 1800경의 파일 저장 가능, 단일 경로에 최대 43억개 파일 저장 가능
  - NFS, SMB, S3, FTP, REST등의 멀티 프로토콜 지원
 - AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드 스토리지로 활용하여 유연한 구성 변경 가능
- - Scale-out/in: CNQ 클러스터의 컴퓨팅 노드를 추가/제거
- - Scale-up/down: CNQ 클러스터의 컴퓨팅 노드를 상위/하위 인스턴스로 교체	
+  - Scale-out/in: CNQ 클러스터의 컴퓨팅 노드를 추가/제거
+  - Scale-up/down: CNQ 클러스터의 컴퓨팅 노드를 상위/하위 인스턴스로 교체	
 - Global Name Space 기능을 사용하여 다른 CNQ 클러스터, On Premise Qumulo 클러스터등과 네임 스페이스의 확장이 가능함
 - CNQ 웹페이지: https://qumulo.com/ko/product/aws/
 
@@ -13,27 +13,27 @@
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 - 목표 구성도
- - ![aws목표구성](https://github.com/user-attachments/assets/6e89699d-59fd-4fb7-9eaa-9a6d318a5617)
+  - ![aws목표구성](https://github.com/user-attachments/assets/6e89699d-59fd-4fb7-9eaa-9a6d318a5617)
 
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
- - aws-terraform-cnq-<x.y>.zip (x.y는 버전)
- - host_configuration.tar.gz
- - qumulo-core.deb
+  - aws-terraform-cnq-<x.y>.zip (x.y는 버전)
+  - host_configuration.tar.gz
+  - qumulo-core.deb
 
 # CNQ 설치 파일을 S3 버킷에 업로드
 - AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
 - 아래 예시와 같이 버킷 생성 및 파일 업로드
- - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
-  - ypark-cnq-utilbucket : 원하는 이름 지정
-  - cnq-install-files/ : 원하는 이름 지정
-  - qumulo-core-install/ : 정확하게 입력
-  - 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
+  - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
+   - ypark-cnq-utilbucket : 원하는 이름 지정
+   - cnq-install-files/ : 원하는 이름 지정
+   - qumulo-core-install/ : 정확하게 입력
+   - 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
 - 전달 받은 qumulo-core.deb 파일을 CNQ 버전 디렉토리에 업로드
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
- - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
+  - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
-  - <img src="https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6" width="20%">
+   - <img src="https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6" width="20%">
 <!--
 ![image](https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6)
 -->
