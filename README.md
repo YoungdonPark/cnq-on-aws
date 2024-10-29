@@ -36,7 +36,10 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
-  - <img src src="https://github.com/user-attachments/assets/887290dd-db83-45c7-9e38-26ce785578dd" width="50%">
+
+
+![cnq install file](https://github.com/user-attachments/assets/9dcecd4e-0cbb-40c9-9d43-0407ed1a5b41)
+
 
 # 사전 필요 AWS 구성
 - 구성이 필요한 리소스
