@@ -2,7 +2,7 @@
 - CNQ on AWS는 Qumulo의 Cloud 제품으로 기존 On Premise Qumulo의 장점을 그대로 수용함
 - 노드를 늘릴수록 Scale-out한 성능, 구성한 모든 저장 공간이 단일 파일 시스템
   - 클러스터에 최대 1800경의 파일 저장 가능, 단일 경로에 최대 43억개 파일 저장 가능
- - NFS, SMB, S3, FTP, REST등의 멀티 프로토콜 지원
+  - NFS, SMB, S3, FTP, REST등의 멀티 프로토콜 지원
 - AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드 스토리지로 활용하여 유연한 구성 변경 가능
   - Scale-out/in: CNQ 클러스터의 컴퓨팅 노드를 추가/제거
   - Scale-up/down: CNQ 클러스터의 컴퓨팅 노드를 상위/하위 인스턴스로 교체	
@@ -43,7 +43,7 @@
   - VPC 1개
     - Internet gateway 1개
     - S3 Gateway Endpoint 1개
-    - EC2 Keypair 1
+    - EC2 Keypair 1개
     - Public subnet 1개
       - NAT gateway 1개
     - Private subnet 1개
@@ -102,6 +102,7 @@
     # 결과과 예시
     Terraform v1.9.8
     on windows_amd64
+
 # CNQ를 위한 S3 백엔드 스토리지 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
@@ -380,7 +381,7 @@
 - AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
 - 추가적으로 Private subnet, Public subnet 등에 EC2를 설치하고 GUI, CLI 대해 테스트 하거나, SMB, NFS, S3등을 테스트 할 수 있음
 
-#<마침>
+# <마침>
 
 =============================
 - 
