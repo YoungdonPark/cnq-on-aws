@@ -238,7 +238,7 @@
       q_persistent_storage_deployment_unique_name = "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"
       # q_persistent_storage_type: hot_s3_int(기본값), hot_s3_std, cold_s3_ia, cold_s3_gir 입력이 가능하며, 많은 경우 hot_s3_int 사용을 권장
       q_persistent_storage_type = "hot_s3_int"
-      # q_instance_type: m6idn.2xlarge 이상, i4i.2xlarge 이상, i3en.2xlarge 이상의 인스턴스 타입 설정이 필요하며, Seoul Region의 경우 i4i 인스턴스 타입만 사용 가능, 
+      # q_instance_type: m6idn.2xlarge 이상, i4i.2xlarge 이상, i3en.2xlarge 이상의 인스턴스 타입 설정이 필요하며, Seoul Region의 경우 i4i 인스턴스 타입만 사용 가능
       q_instance_type = "i4i.2xlarge"
       # q_node_count: 클러스터의 노드 수 설정
       q_node_count = 3
