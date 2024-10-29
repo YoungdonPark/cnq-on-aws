@@ -13,7 +13,7 @@
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 - 목표 구성도
-<img src="https://github.com/user-attachments/assets/6e89699d-59fd-4fb7-9eaa-9a6d318a5617" width="50%">
+  - <img src="https://github.com/user-attachments/assets/6e89699d-59fd-4fb7-9eaa-9a6d318a5617" width="50%">
 
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
@@ -33,10 +33,7 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
-<img src="https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6" width="20%">
-<!--
-![image](https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6)
--->
+  - <img src="https://github.com/user-attachments/assets/b4808567-6f70-4914-9bba-fffa7dcf4eb6" width="20%">
 
 # 사전 필요 AWS 구성
 - 구성이 필요한 리소스
@@ -56,9 +53,9 @@
   - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
   - Service category: AWS services 선택
   - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
-<img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
+    - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
   - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
-<img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
+    - <img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
   - S3 Gateway endpoint 동작 검증 방법
     - https://repost.aws/knowledge-center/vpc-check-traffic-flow
       
@@ -118,7 +115,6 @@
     soft_capacity_limit = 500
     # tags: 필요시 수정
     tags = null
-
 
 - CLI 툴을 열고 aws-terraform-cnq-<x.y>\persistent-storage 경로로 이동
 - 아래의 순서로 Terraform을 이용하여 CNQ가 사용할 S3 백엔드 스토리지 생성
