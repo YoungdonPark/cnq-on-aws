@@ -3,7 +3,7 @@
 - 노드를 늘릴수록 Scale-out한 성능, 구성한 모든 저장 공간이 단일 파일 시스템
   - 클러스터에 최대 1800경의 파일 저장 가능, 단일 경로에 최대 43억개 파일 저장 가능
   - NFS, SMB, S3, FTP, REST등의 멀티 프로토콜 지원
-- AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드 저장소로 활용하여 유연한 구성 변경 가능
+- AWS의 EC2를 컴퓨팅 노드로 사용하고 S3를 백엔드(Backend) 저장소로 활용하여 유연한 구성 변경 가능
   - Scale-out/in: CNQ 클러스터의 컴퓨팅 노드를 추가/제거
   - Scale-up/down: CNQ 클러스터의 컴퓨팅 노드를 상위/하위 인스턴스로 교체	
 - Global Name Space 기능을 사용하여 다른 CNQ 클러스터, On Premise Qumulo 클러스터등과 네임 스페이스의 확장이 가능함
@@ -14,7 +14,7 @@
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 - 목표 구성도
-  - **(중요) 아래 구성도에서 CNQ와 S3 백 엔드 저장소를 제외하고는 CNQ를 구성하기 전에 미리 구성이 되어 있어야 함**
+  - **(중요) 아래 구성도에서 CNQ와 S3 백엔드 저장소를 제외하고는 CNQ를 구성하기 전에 미리 구성이 되어 있어야 함**
   - <img src="https://github.com/user-attachments/assets/6e89699d-59fd-4fb7-9eaa-9a6d318a5617" width="50%">
 
 
@@ -26,7 +26,7 @@
 
 
 # CNQ 설치 파일을 S3 버킷에 업로드
-- **(중요) 이 과정에서 생성하는 S3 버킷은 CNQ를 위한 S3 백 엔드 저장소와는 별개이며, 단순히 설치 파일을 업로드 하기 위한 공간**
+- **(중요) 이 과정에서 생성하는 S3 버킷은 CNQ를 위한 S3 백엔드 저장소와는 별개이며, 단순히 설치 파일을 업로드 하기 위한 공간**
 - AWS 매니지먼트 콘솔(AWS 웹페이지)에 접속 후 S3 메뉴로 이동
 - 아래 예시와 같이 버킷 생성 및 파일 업로드
   - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
@@ -120,7 +120,8 @@
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
   - **(중요)S3 백엔드 저장소 생성을 위한 tfvars의 경로는 aws-terraform-cnq-<x.y> 가 아니라 aws-terraform-cnq-<x.y>\persistent-storage\ 인것에 유의**
-- 아래 예시를 참고하여 변수 수정
+  - **(중요)Terraform은 terraform apply를 실행하는 경로의 terraform.tfvars 파일을 찾아서 리소스를 생성/변경/삭제함**
+- 아래 예시를 참고하여 terraform.tfvars 파일의 변수 수정 후 저장
     ```terraform
     # deployment_name: 원하는 deployment_name 지정(32글자 이하)
     deployment_name = "ypark-cnq7231-3nodes-s3be"
@@ -188,7 +189,7 @@
 # CNQ 클러스터 구성 (최종 단계)
 - aws-terraform-cnq-<x.y>\ 경로의 terraform.tfvars 파일을 텍스트 에디터로 열기
 - **(중요)CNQ 클러스터 구성을 위한 tfvars의 경로는 aws-terraform-cnq-<x.y>\persistent-storage\가 아니라 aws-terraform-cnq-<x.y> 인것에 유의**
-- 아래 예시를 참고하여 해당 파일의 아래에 나열된 변수만 수정하고 나머지는 default 값으로 유지
+- 아래 예시를 참고하여 terraform.tfvars 변수 수정 후 저장
     ```terraform
       # ****************************** Required ******************************
       # ***** Terraform Variables *****
