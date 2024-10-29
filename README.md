@@ -38,7 +38,7 @@
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
 - 업로드 완료된 예시 이미지
-  - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="30%"> </a>
+  - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="70%"> </a>
 
 # 사전 필요 AWS 구성
 - 사전 구성이 필요한 리소스
@@ -54,15 +54,15 @@
   - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
   - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
 - S3 Gateway endpoint 설정
-  - **(중요) S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망으로 통신하게 되어 S3 트래픽 비용이 대폭 절감됨**
+  - S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망으로 통신하게 되어 S3 트래픽 비용이 대폭 절감됨
   - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
   - Service category: AWS services 선택
   - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
-    - <a href="images/s3 gw endpoint-service.png"> <img src="images/s3 gw endpoint-service.png" alt="s3 gw endpoint-service" width="50%"> </a>
+    - <a href="images/s3 gw endpoint-service.png"> <img src="images/s3 gw endpoint-service.png" alt="s3 gw endpoint-service" width="25%"> </a>
   - Type에서 Gateway 선택 및 VPC 선택
-    - <a href="images/s3 gw endpoint - type, vpc.png"> <img src="images/s3 gw endpoint - type, vpc.png" alt="s3 gw endpoint - type, vpc" width="50%"> </a>
+    - <a href="images/s3 gw endpoint - type, vpc.png"> <img src="images/s3 gw endpoint - type, vpc.png" alt="s3 gw endpoint - type, vpc" width="60%"> </a>
   - Route tables에서 CNQ를 설치할 Private subnet 선택
-    - <a href="images/s3 gw endpoint rt지정.png"> <img src="images/s3 gw endpoint rt지정.png" alt="s3 gw endpoint rt지정" width="50%"> </a>
+    - <a href="images/s3 gw endpoint rt지정.png"> <img src="images/s3 gw endpoint rt지정.png" alt="s3 gw endpoint rt지정" width="60%"> </a>
   - Policy는 Full access 선택
   - Create endpoint 클릭하여 S3 Gateway endpoint 생성
   - S3 Gateway endpoint 동작 검증 방법
@@ -114,7 +114,7 @@
     on windows_amd64
 
 
-# CNQ를 위한 S3 백엔드 저장소 생성
+# CNQ 구성 1/2단계 -  S3 백엔드 저장소 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
   - Terraform은 terraform apply를 실행하는 경로의 terraform.tfvars 파일을 자동으로 찾아 실행됨  
@@ -182,11 +182,10 @@
     prevent_destroy = false
     soft_capacity_limit = "500 TB"
 
-- **(중요)위 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 함**
-- **(중요)이 값을 반드시 텍스트 에디터등에 메모하는 것을 권고**
+- **(중요)위 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 하며, 이 값을 CNQ 구성 2/2단계에도 사용함**
 - AWS 매지니먼트 콘솔에서도 이 값이 포함되어 생성된 4개의 버킷을 확인 할 수 있음
 
-# CNQ 클러스터 구성 (최종 단계)
+# CNQ 구성 2/2단계 -  클러스터 구성
 - aws-terraform-cnq-<x.y>\ 경로의 terraform.tfvars 파일을 텍스트 에디터로 열기
 
 - 아래 예시를 참고하여 terraform.tfvars 변수 수정 후 저장
