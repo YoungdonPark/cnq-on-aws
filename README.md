@@ -1,8 +1,3 @@
-# 테스트
-- 테스트1
-  - ㅌㅌㅌ
-  - ㅌㅌㅌ
-      
 # Cloud Native Qumulo on AWS(CNQ on AWS)는 무엇인가요?
 - CNQ on AWS는 Qumulo의 Cloud 제품으로 기존 On Premise Qumulo의 장점을 그대로 수용함
 - 노드를 늘릴수록 Scale-out한 성능, 구성한 모든 저장 공간이 단일 파일 시스템
@@ -18,7 +13,6 @@
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 - 목표 구성도
-
 <img src="https://github.com/user-attachments/assets/6e89699d-59fd-4fb7-9eaa-9a6d318a5617" width="50%">
 
 # 설치 파일 준비
@@ -383,8 +377,9 @@
     qumulo_private_url = "https://<custom.dns>"
     qumulo_private_url_node1 = "https://172.17.17.99"
 
-- 설치가 정상적으로 완료됨
+- 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨
 - AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
+  - 이미지 추가 xxxxxxxxxxxxxxxx
 - 추가적으로 Private subnet, Public subnet 등에 EC2를 설치하고 GUI, CLI 대해 테스트 하거나, SMB, NFS, S3등을 테스트 할 수 있음
 
 # <마침>
