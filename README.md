@@ -25,7 +25,7 @@
   - qumulo-core.deb
 
 
-# CNQ 설치 파일을 S3 버킷에 업로드
+# CNQ 설치 파일을 S3 버킷(CNQ를 위한 Util 버킷)에 업로드
 - **(중요) 이 과정에서 생성하는 S3 버킷은 CNQ를 위한 S3 백엔드 저장소와는 별개이며, 단순히 설치 파일을 업로드 하기 위한 공간**
 - AWS 매니지먼트 콘솔에 접속 후 S3 메뉴로 이동
 - 아래 예시와 같이 버킷 생성 및 파일 업로드
@@ -196,9 +196,9 @@
       deployment_name = "ypark-cnq7231-3nodes"
 
       # ***** S3 Bucket Variables
-      # s3_bucket_name: "CNQ 설치 파일을 S3 버킷에 업로드" 부분에서 처음 생성한 버킷의 이름
+      # s3_bucket_name: "CNQ 설치 파일을 S3 버킷(CNQ를 위한 Util 버킷)에 업로드" 부분에서 처음 생성한 버킷의 이름
       s3_bucket_name = "ypark-cnq-utilbucket"
-      # s3_bucket_prefix: "CNQ 설치 파일을 S3 버킷에 업로드" 부분에서 처음 생성한 버킷의 하단에 추가한 prefix의 이름으로 하위 폴더처럼 동작함
+      # s3_bucket_prefix: "CNQ 설치 파일을 S3 버킷(CNQ를 위한 Util 버킷)에 업로드" 부분에서 처음 생성한 버킷의 하단에 추가한 prefix의 이름
       s3_bucket_prefix = "cnq-install-files/"
       # s3_bucket_region:  이 버킷이 구성된 Region
       s3_bucket_region = "ap-northeast-2"
@@ -226,7 +226,7 @@
       q_cluster_admin_password = "abcde12345!@#$%"
       # q_cluster_name: 클러스터의 이름
       q_cluster_name = "ypark-cnq7231"
-      # q_cluster_version: "CNQ 설치 파일을 S3 버킷에 업로드" 부분에서 업로드한 경로(7.2.3.1/)와 설치파일 그리고 아래 설치할 버전이 모두 정확히 일치해야 함
+      # q_cluster_version: "CNQ 설치 파일을 S3 버킷(CNQ를 위한 Util 버킷)에 업로드" 부분에서 업로드한 경로(7.2.3.1/)와 설치파일 그리고 아래 설치할 버전이 모두 정확히 일치해야 함
       q_cluster_version = "7.2.3.1"
 
       # ***** Qumulo Cluster Config Options *****
