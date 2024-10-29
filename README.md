@@ -1,3 +1,28 @@
+<a href="images/aws목표구성.png">
+  <img src="images/aws목표구성.png" alt="aws목표구성" width="50%">
+</a>
+
+<a href="images/cnq ec2.png">
+  <img src="images/cnq ec2.png" alt="cnq ec2" width="50%">
+</a>
+
+<a href="images/cnq install file.png">
+  <img src="images/cnq install file.png" alt="cnq install file" width="50%">
+</a>
+
+<a href="images/s3 gw endpoint - type, vpc.png">
+  <img src="images/s3 gw endpoint - type, vpc.png" alt="s3 gw endpoint - type, vpc" width="50%">
+</a>
+
+<a href="images/s3 gw endpoint rt지정.png">
+  <img src="images/s3 gw endpoint rt지정.png" alt="s3 gw endpoint rt지정" width="50%">
+</a>
+
+<a href="images/s3 gw endpoint-service.png">
+  <img src="images/s3 gw endpoint-service.png" alt="s3 gw endpoint-service" width="50%">
+</a>
+
+
 # Cloud Native Qumulo on AWS(CNQ on AWS)는 무엇인가요?
 - CNQ on AWS는 Qumulo의 Cloud 제품으로 기존 On Premise Qumulo의 장점을 그대로 수용함
 - 노드를 늘릴수록 Scale-out한 성능, 구성한 모든 저장 공간이 단일 파일 시스템
@@ -59,13 +84,15 @@
   - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
   - Service category: AWS services 선택
   - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
-    - <img src="https://github.com/user-attachments/assets/2ed6d59f-b674-4e96-ad20-65bfac6c7454" width="20%">
+
+  
   - Type에서 Gateway 선택, S3 Gateway endpoint를 동작 시킬 VPC 선택
     - <img src="https://github.com/user-attachments/assets/80e3091c-eca9-4f47-960f-e2b71d9fd5a7" width="50%">
   - Route tables에서 CNQ를 설치할 Private subnet 선택
     <!--s3 gw endpoint rt지정-->
     -<img src="https://github.com/user-attachments/assets/ac8e2650-b563-4743-bc3c-5ed70b04bbdf)" width="50%">
-  - Policy는 Full access 선택  
+  - Policy는 Full access 선택
+  - Create endpoint로 생성
   - S3 Gateway endpoint 동작 검증 방법
     - https://repost.aws/knowledge-center/vpc-check-traffic-flow
 
