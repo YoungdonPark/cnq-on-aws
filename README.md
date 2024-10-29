@@ -177,7 +177,7 @@
     soft_capacity_limit = "500 TB"
 
 -**(중요)위의 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"을 deployment_unique_name 라고 부르며, 이 값을 반드시 텍스트 에디터등에 메모해두는 것을 권고, CNQ 클러스터 구성시에 이 값을 적어서, 노드와 S3 백엔드 저장소를 연동 시킴**
-- AWS 매니지먼트 콘솔이나 AWS CLI등을 이용하여 생성된 4개의 버킷 확인 가능
+- AWS 매니지먼트 콘솔(웹페이지)이나 AWS CLI등을 이용하여 생성된 4개의 버킷 확인 가능
 
 
 # CNQ 클러스터 구성 (최종 단계)
@@ -388,7 +388,7 @@
     qumulo_private_url_node1 = "https://172.17.17.99"
 
 - 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨
-- AWS 매니지먼트 콘솔의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
+- AWS 매니지먼트 콘솔(웹페이지)의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
   - 이미지 추가 xxxxxxxxxxxxxxxx
 - 추가적으로 Private subnet, Public subnet 등에 EC2를 설치하고 GUI, CLI 대해 테스트 하거나, SMB, NFS, S3등을 테스트 할 수 있음
 
