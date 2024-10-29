@@ -1,3 +1,5 @@
+# xxx
+
 # Cloud Native Qumulo on AWS(CNQ on AWS)는 무엇인가요?
 - CNQ on AWS는 Qumulo의 Cloud 제품으로 기존 On Premise Qumulo의 장점을 그대로 수용함
 - 노드를 늘릴수록 Scale-out한 성능, 구성한 모든 저장 공간이 단일 파일 시스템
@@ -14,8 +16,10 @@
 - 윈도우즈 OS 환경에서 Terraform을 이용하여 AWS상에 Cloud Native Qumulo(CNQ) 클러스터 구성
 - 테스트 환경을 전제로 하며, 실제 운영 환경에서는 환경에 맞게 수정 필요
 - 목표 구성도
-  - **(중요) 아래 구성도에서 CNQ와 S3 백엔드 저장소를 제외하고는 CNQ를 구성하기 전에 미리 구성이 되어 있어야 함**
+  - 아래 구성도에서 CNQ와 S3 백엔드 저장소를 제외하고는 CNQ를 구성하기 전에 미리 구성이 되어 있어야 함
   - <img src="https://github.com/user-attachments/assets/c8dec26b-4460-412d-99b2-e7296d1bf440" width="50%">
+
+
 # 설치 파일 준비
 - Qumulo 담당자와 Contact하여 원하는 설치 버전에 맞는 아래 3개의 파일 준비
   - aws-terraform-cnq-<x.y>.zip (x.y는 버전)
@@ -30,8 +34,8 @@
   - 예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
    - ypark-cnq-utilbucket : 원하는 이름 지정
    - cnq-install-files/ : 원하는 이름 지정
-   - qumulo-core-install/ : **정확하게 입력**
-   - 7.2.3.1/ : **설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)**
+   - qumulo-core-install/ : 정확하게 입력
+   - 7.2.3.1/ : 설치하려는 CNQ 버전을 정확하게 입력 (예를들어 7.2.3.1를 설치한다면 7.2.3.1/)
 - 전달 받은 qumulo-core.deb 파일을 CNQ 버전 디렉토리에 업로드
 - 전달 받은 host_configuration.tar.gz 파일을 CNQ 버전 디렉토리에 업로드
   - 이 파일은 압축을 풀지 않고 host_configuration.tar.gz 파일 그대로 업로드
@@ -394,19 +398,16 @@
     qumulo_private_url = "https://<custom.dns>"
     qumulo_private_url_node1 = "https://172.17.17.99"
 
-- 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨
-- **(중요)Terraform 결과에도 CNQ클러스터의 deployment_unique_name이 출력됨, deployment_unique_name = "ypark-cnq7231-3nodes-OW6ELGCN9TX"**
-- **(중요)이 값은 **
-- 
-- AWS 매니지먼트 콘솔(웹페이지)의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인
-- 
-  
-- 추가적으로 Private subnet, Public subnet 등에 EC2를 설치하고 GUI, CLI 대해 테스트 하거나, SMB, NFS, S3등을 테스트 할 수 있음
+- 설치가 정상적으로 완료되면 위와 같은 형태로 결과과 출력됨-
+- AWS 매니지먼트 콘솔(웹페이지)의 EC2 항목에서 아래와 같이 3개의 EC2가 설치된 것을 확인   
+- 설치를 마친 뒤 Subnet,EC2등을 알맞게 추가 구성하고 Qumulo GUI, Qumulo CLI에 대한 접근 테스트와 SMB, NFS, S3등을 테스트 할 수 있음
 
-# <마침>
-
+<!--
 =============================
-- 
+
+ Terraform 결과에도 CNQ클러스터의 deployment_unique_name이 출력됨, deployment_unique_name = "ypark-cnq7231-3nodes-OW6ELGCN9TX"- 
+
+
 
 - # AWS 로그인
 - AWS 액세스 포털등을 이용하여 로그인
@@ -422,6 +423,6 @@
       "Arn": "arn:aws:iam::123456789012:user/username"
   }
 
-
+-->
 
 
