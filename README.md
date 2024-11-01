@@ -82,6 +82,7 @@
   
 # 7. 명령어 실행 도구 및 Terraform 변수 파일 편집 도구
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
+  - VS Code에서 Terraform 설치를 위해서는 HashiCorp Terraform extension 설치 필요 
 - 또는 윈도우즈 PowerShell과 같은 기본 CLI 툴, 메모장등의 텍스트 에디터 사용
 
   
@@ -399,6 +400,30 @@
 
 <!--
 =============================
+
+# 11. 1노드 구성
+
+Add this variable to terraform.tfvars in the /persistent-storage directory
+single_node_cluster = true
+save the file
+deploy the persistent-storage (you will get 1 bucket and 100TB capacity limit)
+
+In the top-level directory for Terraform edit the file variables.tf
+Search for q_node_count
+Swap the commented lines to look like below
+Delete “THIS IS NOT SUPPORTED” at the end of the line you uncommented and save
+
+
+
+
+
+
+
+
+
+When you deploy just set q_node_count in your terraform.tfvars file to ‘1’
+
+
 
 - **(중요) CNQ는 Private subnet에 위치할 예정이며, 이 Private subnet에는 CNQ외에 다른 리소스가 없음, 그러므로 생성되는 모든 S3 트래픽은 S3 백엔드 저장소를 위한 트래픽이므로 인터넷을 거칠 이유가 없으며, 만약 인터넷을 거치게 된다면, S3 트래픽으로 인한 비용이 발생하게 됨**
 
