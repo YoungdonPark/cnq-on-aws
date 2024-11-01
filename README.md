@@ -123,66 +123,64 @@
   - CNQ 클러스터 생성을 위한 terraform.tfvars는 aws-terraform-cnq-<x.y>\ 경로에 위치 함
 
 - 아래 예시를 참고하여 terraform.tfvars 파일의 변수 수정 후 저장
-    ```terraform
-    # deployment_name: 원하는 deployment_name 지정(32글자 이하)
-    deployment_name = "ypark-cnq7231-3nodes-s3be"
-    # aws_region: 설치 Region 지정
-    aws_region = "ap-northeast-2"
-    # prevent_destroy: 이 값이 True이면 "terraform destory"를 수행하여도 버킷이 삭제되지 않아 실수를 방지 할 수 있음, 운영을 위한 배포시에는 이 값을 True로 하는 것을 권고, 이 값이 false이면 "terraform destory" 명령어로 데이터가 있는 버킷도 모두 삭제됨
-    prevent_destroy     = false
-    # soft_capacity_limit: S3 백엔드 저장소의 용량, 설정상의 용량으로 과금과는 무관(과금은 리소스의 사용량과 상관), TB 단위로 지정하며 최소 500TB에서 최대 10000TB(10PB)까지 설정가능함, 이 후 필요시 늘릴 수 있음
-    soft_capacity_limit = 500
-    # tags: 필요시 수정
-    tags = null
+  ```terraform
+  # deployment_name: 원하는 deployment_name 지정(32글자 이하)
+  deployment_name = "ypark-cnq7231-3nodes-s3be"
+  # aws_region: 설치 Region 지정
+  aws_region = "ap-northeast-2"
+  # prevent_destroy: 이 값이 True이면 "terraform destory"를 수행하여도 버킷이 삭제되지 않아 실수를 방지 할 수 있음, 운영을 위한 배포시에는 이 값을 True로 하는 것을 권고, 이 값이 false이면 "terraform destory" 명령어로 데이터가 있는 버킷도 모두 삭제됨
+  prevent_destroy     = false
+  # soft_capacity_limit: S3 백엔드 저장소의 용량, 설정상의 용량으로 과금과는 무관(과금은 리소스의 사용량과 상관), TB 단위로 지정하며 최소 500TB에서 최대 10000TB(10PB)까지 설정가능함, 이 후 필요시 늘릴 수 있음
+  soft_capacity_limit = 500
+  # tags: 필요시 수정
+  tags = null
 
 - CLI 툴을 열고 aws-terraform-cnq-<x.y>\persistent-storage 경로로 이동
 - 아래의 순서로 Terraform을 이용하여 CNQ가 사용할 S3 백엔드 저장소 생성
 - Terraform 작업 환경 초기화
-```
-```terraform
-    # Terraform 작업 환경 초기화
-    terraform init
-    # 결과 예시
-    .... 생략 ....
-    Terraform has been successfully initialized!
+  ```terraform
+  # Terraform 작업 환경 초기화
+  terraform init
+  # 결과 예시
+  .... 생략 ....
+  Terraform has been successfully initialized!
 - Terraform plan으로 변경 사항 예측, 영향도 확인, 에러 검증
-    ```terraform
-    # 변경 사항 예측, 영향도 확인, 에러 검증
-    terraform plan
-    #결과 예시
-    .... 생략 ....
-    aws_ssm_parameter.bucket-region: Refreshing state... [id=/qumulo/ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV/bucket-region]
-    aws_s3_bucket.cnq_bucket[2]: Refreshing state... [id=f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3]
-    aws_s3_bucket.cnq_bucket[1]: Refreshing state... [id=dj7bynqnzpv-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-2]
-    aws_s3_bucket.cnq_bucket[0]: Refreshing state... [id=x3jbivvuwds-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-1]
-    aws_s3_bucket.cnq_bucket[3]: Refreshing state... [id=1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4]
-    .... 생략 ....
-    Plan: 4 to add, 1 to change, 0 to destroy.
+  ```terraform
+  # 변경 사항 예측, 영향도 확인, 에러 검증
+  terraform plan
+  #결과 예시
+  .... 생략 ....
+  aws_ssm_parameter.bucket-region: Refreshing state... [id=/qumulo/ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV/bucket-region]
+  aws_s3_bucket.cnq_bucket[2]: Refreshing state... [id=f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3]
+  aws_s3_bucket.cnq_bucket[1]: Refreshing state... [id=dj7bynqnzpv-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-2]
+  aws_s3_bucket.cnq_bucket[0]: Refreshing state... [id=x3jbivvuwds-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-1]
+  aws_s3_bucket.cnq_bucket[3]: Refreshing state... [id=1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4]
+  .... 생략 ....
+  Plan: 4 to add, 1 to change, 0 to destroy.
 - Terraform apply를 실행하여 리소스 생성
-    ```terraform
-    # 리소스 생성
-    terraform apply
-    # 실행 여부 재확인: yes 입력
-    Do you want to perform these actions?
-    Terraform will perform the actions described above.
-    Only 'yes' will be accepted to approve.
-  
+  ```terraform
+  # 리소스 생성
+  terraform apply
+  # 실행 여부 재확인: yes 입력
+  Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
     Enter a value: yes
-    #결과 예시
-    .... 생략
-    Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+  #결과 예시
+  .... 생략
+  Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 
-    Outputs:
-    
-    bucket_names = [
-      "x3jbivvuwds-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-1",
-      "dj7bynqnzpv-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-2",
-      "f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3",
-      "1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4",
-    ]
-    deployment_unique_name = "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"
-    prevent_destroy = false
-    soft_capacity_limit = "500 TB"
+  Outputs:
+  
+  bucket_names = [
+    "x3jbivvuwds-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-1",
+    "dj7bynqnzpv-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-2",
+    "f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3",
+    "1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4",
+  ]
+  deployment_unique_name = "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"
+  prevent_destroy = false
+  soft_capacity_limit = "500 TB"
 
 - **(중요)위 결과에서 "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"은 S3 백엔드 저장소의 deployment_unique_name이며, 이 값을 CNQ 구성 2/2단계에서 사용함**
 - AWS 매지니먼트 콘솔에서도 이 값이 포함되어 생성된 4개의 버킷을 확인 할 수 있음
