@@ -82,7 +82,7 @@
   
 # 7. 명령어 실행 도구 및 Terraform 변수 파일 편집 도구
 - VS Code와 같은 개발 도구 설치 권장 (https://code.visualstudio.com/)
-  - VS Code에서 Terraform 설치를 위해서는 HashiCorp Terraform extension 설치 필요 
+  - VS Code에서 Terraform 사용을 위해서는 HashiCorp Terraform extension 설치 필요 
 - 또는 윈도우즈 PowerShell과 같은 기본 CLI 툴, 메모장등의 텍스트 에디터 사용
 
   
