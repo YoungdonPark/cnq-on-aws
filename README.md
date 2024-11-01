@@ -57,8 +57,7 @@
   - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
   - Private subnet의 S3 통신을 위한 목적지: CNQ 설치할 Region의 S3 Gateway endpoint
 - S3 Gateway endpoint 설정
-  - **(중요)S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망으로 통신하게 되어 S3 트래픽 비용이 대폭 절감됨**
-  - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
+   - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
   - Service category: AWS services 선택
   - Services에서 아래와 같이 S3 입력 후 설치할 Region의 S3 서비스 선택
     - <a href="images/s3 gw endpoint-service.png"> <img src="images/s3 gw endpoint-service.png" alt="s3 gw endpoint-service" width="25%"> </a>
@@ -116,6 +115,8 @@
   on windows_amd64
 
 # 9. CNQ 구성 1/2단계 -  S3 백엔드 저장소 생성
+- **(중요)설치 단계는 총 2단계로 1단계에서 S3 백엔드 저장소를 생성하고, 2단계에서는 생성된 S3 백엔드 저장소와 결합하여 클러스터를 생성함**
+- **(중요)이 과정을 통해 생성되는 4개의 버킷은 "hashing"되어 서로 다른 AWS S3 파티션에 할당되어 성능을 최대화 함**
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
   - Terraform은 terraform apply를 실행하는 경로의 terraform.tfvars 파일을 자동으로 찾아 실행됨  
