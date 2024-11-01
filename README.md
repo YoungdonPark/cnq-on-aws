@@ -92,9 +92,9 @@
   - AWS CLI
   - Terraform
 - Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
- - Chocolatey (https://chocolatey.org/install) 방문 후 설치 안내 참고하여 설치
- - CLI 툴을 열고 아래 명령어 수행
- - `choco --version` 명령어로 Chocolatey 버전 확인
+  - Chocolatey (https://chocolatey.org/install) 방문 후 설치 안내 참고하여 설치
+  - CLI 툴을 열고 아래 명령어 수행
+  - `choco --version` 명령어로 Chocolatey 버전 확인
 ```powershell
     # Chocolatey 버전 확인
     choco --version
@@ -119,7 +119,7 @@
     # 결과 예시
     Terraform v1.9.8
     on windows_amd64
-    
+
 # 9. CNQ 구성 1/2단계 -  S3 백엔드 저장소 생성
 - aws-terraform-cnq-<x.y>.zip 파일을 원하는 경로에 압축 해제
 - 압축 해제 후 aws-terraform-cnq-<x.y>\persistent-storage\terraform.tfvars 파일을 텍스트 에디터로 열기
