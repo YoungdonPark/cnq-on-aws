@@ -213,7 +213,7 @@
       ec2_key_pair = "ypark-keypair-ppkfirst"
       # private_subnet_id: CNQ 클러스터를 구성하기 위해 사전에 생성한 Private subnet의 ID
       private_subnet_id = "subnet-033873efdc3efdb4e"
-      # term_protection: true로 설정하면, 실수로 리소스가 termination 되는 것을 방지(운영 환경에서는 true로 변경후 클러스터 생성 권고)
+      # term_protection: true로 설정하면, AWS 매니지먼트 콘솔에서 삭제를 시도할때 알림 표시(운영 환경에서는 true로 변경후 클러스터 생성 권고), Terraform의 EC2 destroy(삭제)는 막지 못함
       term_protection = false
 
       # ***** Qumulo Cluster Variables *****
