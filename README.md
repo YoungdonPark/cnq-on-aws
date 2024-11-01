@@ -94,18 +94,14 @@
 - Chocolatey와 같은 CLI 기반의 패키지 관리 툴 설치 권장
   - Chocolatey (https://chocolatey.org/install) 방문 후 설치 안내 참고하여 설치
   - 설치 후 `choco --version` 명령어로 Chocolatey 버전 확인
-```powershell
-# Chocolatey 버전 확인
-choco --version
-# 결과 예시
-2.3.0
+    ```powershell
+    # Chocolatey 버전 확인
+    choco --version
+    # 결과 예시
+    2.3.0
 
-
-
-
-
-- `choco install awscli` 명령어로 awscli 설치
-- `choco install terraform` 명령어로 terraform 설치
+  - `choco install awscli` 명령어로 awscli 설치
+  - `choco install terraform` 명령어로 terraform 설치
 - `aws --version` 명령어로 awscli 버전 확인
   
   ```powershell
