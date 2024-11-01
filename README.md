@@ -41,7 +41,7 @@
   - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="45%"> </a>
 
 # 5. 필요한 AWS 사전 구성
-- - **(중요)아래 2가지 조건이 만족되지 않으면 설치 실패함**
+- **(중요)아래 2가지 조건이 만족되지 않으면 설치 실패함**
   - CNQ가 구성될 Private subnet은 필요한 패키지를 설치하기 위해 반드시 NAT gateway 또는 다른 라우팅을 통해서 인터넷에 접근이 가능해야 함
   - CNQ가 구성될 Private subnet은 S3 Gatewaway를 통해 S3 백엔드 저장소와 통신해야함. S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망으로 통신하게 되어 S3 트래픽 비용이 대폭 절감됨
 - 사전 구성이 필요한 리소스
