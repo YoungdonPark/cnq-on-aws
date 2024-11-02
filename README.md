@@ -27,6 +27,7 @@
 
 # 4. CNQ 설치 파일을 S3 버킷(CNQ를 위한 Util 버킷)에 업로드
 - **(중요) 이 과정에서 생성하는 S3 버킷은 CNQ를 위한 S3 백엔드 저장소와는 별개이며, 단순히 설치 파일을 업로드 하기 위한 공간**
+- **(중요) 설치 이후에도 지우지 않고 그대로 둘것을 권고**
 - AWS 매니지먼트 콘솔에 접속 후 S3 메뉴로 이동
 - 아래 예시와 같이 버킷 생성 및 파일 업로드
   - (예시) Amazon S3 > Buckets > ypark-cnq-utilbucket > cnq-install-files/ > qumulo-core-install/ > 7.2.3.1/
