@@ -63,6 +63,14 @@
 - 목적지:missionq-dumps.s3.amazonaws.com	, 포트: 443
 - 목적지:monitor.qumulo.com, 포트: 443
   - 관련 링크: https://docs.qumulo.com/administrator-guide/monitoring-and-metrics/enabling-cloud-based-monitoring-remote-support.html
+
+# 6. CNQ 설치 및 Qumulo CBM(Cloud Based Monitoring)을 위한 방화벽 정책 허용
+- 목적지:api.nexus.qumulo.com, 포트: 443
+- 목적지:ep1.qumulo.com, 포트: 443
+- 목적지:api.missionq.qumulo.com, 포트: 443
+- 목적지:missionq-dumps.s3.amazonaws.com	, 포트: 443
+- 목적지:monitor.qumulo.com, 포트: 443
+  - 관련 링크: https://docs.qumulo.com/administrator-guide/monitoring-and-metrics/enabling-cloud-based-monitoring-remote-support.html
   
   
 # 7. 명령어 실행 도구 및 Terraform 변수 파일 편집 도구
