@@ -57,12 +57,7 @@
   - Public subnet의 디폴트 라우팅을 위한 목적지: Internet gateway
   - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
   - Private subnet의 S3 통신을 위한 목적지:을 위한 방화벽 정책 허용
-- 목적지:api.nexus.qumulo.com, 포트: 443
-- 목적지:ep1.qumulo.com, 포트: 443
-- 목적지:api.missionq.qumulo.com, 포트: 443
-- 목적지:missionq-dumps.s3.amazonaws.com	, 포트: 443
-- 목적지:monitor.qumulo.com, 포트: 443
-  - 관련 링크: https://docs.qumulo.com/administrator-guide/monitoring-and-metrics/enabling-cloud-based-monitoring-remote-support.html
+
 
 # 6. CNQ 설치 및 모니터링(CBM)을 위한 방화벽 정책 허용
 - 목적지:api.nexus.qumulo.com, 포트: 443
