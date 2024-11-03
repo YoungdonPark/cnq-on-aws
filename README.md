@@ -56,7 +56,7 @@
 - 리소스들 간의 라우팅
   - Public subnet의 디폴트 라우팅을 위한 목적지: Internet gateway
   - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
-  - Private subnet의 S3 통신을 위한 목적지:을 위한 방화벽 정책 허용
+  - Private subnet의 S3 통신을 위한 목적지: S3 Gateway endpoint
 - S3 Gateway endpoint 설정
   - **(중요)S3 Gateway endpoint를 설정하면 CNQ에서 생성되는 S3 트래픽이 인터넷을 통하지 않고 AWS 내부망으로 통신하게 되어 S3 트래픽 비용이 대폭 절감됨**
   - S3 Gateway endpoint 설정을 위해 VPC > Endpoints > Create endpoint 실행
