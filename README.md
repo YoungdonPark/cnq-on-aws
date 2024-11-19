@@ -53,6 +53,7 @@
     - Public subnet 1개
       - NAT gateway 1개
     - Private subnet 1개
+    **(중요) Private subnet의 Subnet mask는 /24 비트로 구성하는 것을 권고**
 - 리소스들 간의 라우팅
   - Public subnet의 디폴트 라우팅을 위한 목적지: Internet gateway
   - Private subnet의 디폴트 라우팅을 위한 목적지: NAT gateway
@@ -193,6 +194,7 @@
 
 # 10. CNQ 구성 2/2단계 -  클러스터 구성
 - aws-terraform-cnq-<x.y>\ 경로의 terraform.tfvars 파일을 텍스트 에디터로 열기
+- **(중요)  "q_cluster_floating_ips = 24" 부분은 디폴트값 그대로 24로 설정할 것을 권고**
 
 - 아래 예시를 참고하여 terraform.tfvars 변수 수정 후 저장
     ```terraform
@@ -269,8 +271,8 @@
       q_cluster_additional_sg_cidrs = null
       # q_cluster_additional_sg_ids: null로 설정
       q_cluster_additional_sg_ids = null
-      # q_cluster_floating_ips: 부하 분산을 위한 floating_ip 개수, 클러스터당 최소 4개~최대 147개 설정 가능, 이 테스트에서는 노드당 2개씩 배분을 위해 6개로 설정
-      q_cluster_floating_ips = 6
+      # q_cluster_floating_ips: 부하 분산을 위한 floating_ip 개수, 24개 그대로 둘것을 권고, 클러스터당 최소 4개~최대 147개 설정 가능
+      q_cluster_floating_ips = 24
       # q_permissions_boundary: null로 설정
       q_permissions_boundary = null
       # q_persistent_storage_bucket_policy: true로 설정
