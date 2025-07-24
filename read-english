@@ -1,0 +1,34 @@
+# 1. What Is **Cloud Native Qumulo on AWS** (CNQ on AWS)?
+- **CNQ on AWS** is Qumulo’s cloud offering that retains (almost) all the strengths of the on‑premises Qumulo platform.  
+- **Scale‑out performance**: the more nodes you add, the more capacity and throughput you get. All provisioned space forms **one single file system**.  
+  - Store up to **1.8 × 10¹⁹ files** across the cluster and up to **4.3 billion files** in a single directory.  
+  - Multi‑protocol support: **NFS, SMB, S3, FTP, REST**, and more.  
+- CNQ uses **EC2** instances as compute nodes and **Amazon S3** as the back‑end persistent store.  
+  - **Scale‑out / in**: add or remove compute nodes.  
+  - **Scale‑up / down**: swap instance types for larger or smaller ones.  
+- With **Global Namespace**, you can present a unified tree that spans other CNQ clusters and on‑prem Qumulo clusters.  
+- Product page: <https://qumulo.com/ko/product/aws/>
+
+---
+
+# 2. Deployment Goal & Target Architecture
+- Deploy a **test‑lab** CNQ cluster from **Windows** using **Terraform** on AWS.  
+  (Adapt variables and networking for production deployments.)
+- **Target diagram** (everything except CNQ and its S3 back‑end must exist **before** you run Terraform):
+
+  <a href="images/aws목표구성.png">
+    <img src="images/aws목표구성.png" alt="Target AWS architecture" width="50%">
+  </a>
+
+---
+
+# 3. Collect the CNQ Installation Files
+Contact your Qumulo representative and download **three** files that match the version you plan to install.
+
+| File | Description |
+| ---- | ----------- |
+| `aws‑terraform‑cnq‑<x.y>.zip` | Terraform modules and examples (x.y = version) |
+| `host_configuration.tar.gz` | Cloud‑init configuration for CNQ nodes |
+| `qumulo-core.deb` | Qumulo Core package |
+
+---
