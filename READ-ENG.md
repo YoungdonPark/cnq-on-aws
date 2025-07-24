@@ -9,7 +9,7 @@
 - Global Namespace feature allows namespace expansion across other CNQ clusters and on-prem Qumulo clusters.
 - CNQ product page: https://qumulo.com/ko/product/aws/
 
-# 2. Installation Goal and Target Architecture
+# 2. Target Architecture
 - Build a Cloud Native Qumulo (CNQ) cluster on AWS using Terraform from a Windows OS environment.
 - This guide assumes a test environment; modify accordingly for production use.
 - Target architecture:
