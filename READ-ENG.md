@@ -211,4 +211,163 @@ soft_capacity_limit    = "500 TB"
 
 - You can also verify in the AWS Management Console that four buckets containing this unique name have been created.
 
+# 10. CNQ Deployment Step 2 of 2 – Cluster Setup
 
+- Open the **`terraform.tfvars`** file in the directory **`aws‑terraform‑cnq‑<x.y>\`**.  
+- **(Important)** Leave **`q_cluster_floating_ips = 24`** at its default value of 24.
+
+---
+
+### Edit and save `terraform.tfvars` as shown below
+
+```terraform
+# ****************************** Required ******************************
+# ***** Terraform Variables *****
+# deployment_name: specify the desired name (≤ 32 characters)
+deployment_name = "ypark-cnq7231-3nodes"
+
+# ***** S3 Bucket Variables *****
+# s3_bucket_name: the name of the util bucket created earlier
+s3_bucket_name = "ypark-cnq-utilbucket"
+# s3_bucket_prefix: the prefix added beneath that bucket
+s3_bucket_prefix = "cnq-install-files/"
+# s3_bucket_region: the Region where the util bucket resides
+s3_bucket_region = "ap-northeast-2"
+
+# ***** AWS Variables *****
+# aws_region: Region in which to deploy the CNQ cluster
+aws_region = "ap-northeast-2"
+# aws_vpc_id: ID of the pre‑created VPC for the cluster
+aws_vpc_id = "vpc-0309fda56d67b0d8b"
+# ec2_key_pair: the pre‑created EC2 key pair in the same Region
+ec2_key_pair = "ypark-keypair-ppkfirst"
+# private_subnet_id: ID of the pre‑created private subnet for the cluster
+private_subnet_id = "subnet-033873efdc3efdb4e"
+# term_protection: true shows a deletion warning in the AWS Console
+# (recommended for production). Does NOT block `terraform destroy`.
+term_protection = false
+
+# ***** Qumulo Cluster Variables *****
+# q_ami_id: leave null to let Terraform pick the latest Ubuntu AMI (recommended)
+q_ami_id = null
+# q_shared_ami: set to false
+q_shared_ami = false
+# q_debian_package: set to true
+q_debian_package = true
+# q_cluster_admin_password: admin password for the cluster
+q_cluster_admin_password = "abcde12345!@#$%"
+# q_cluster_name: name of the cluster
+q_cluster_name = "ypark-cnq7231"
+# q_cluster_version: must match the version folder (7.2.3.1/) you uploaded
+q_cluster_version = "7.2.3.1"
+
+# ***** Qumulo Cluster Config Options *****
+# q_persistent_storage_deployment_unique_name: deployment_unique_name from Step 1
+q_persistent_storage_deployment_unique_name = "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"
+# q_persistent_storage_type: hot_s3_int (default), hot_s3_std, cold_s3_ia, cold_s3_gir
+q_persistent_storage_type = "hot_s3_int"
+# q_instance_type: m6idn.2xlarge+, i4i.2xlarge+ or i3en.2xlarge+.
+# In Seoul, only i4i instances are available.
+q_instance_type = "i4i.2xlarge"
+# q_node_count: number of nodes in the cluster
+q_node_count = 3
+
+# ****************************** Optional ******************************
+# ***** Environment and Tag Options *****
+# check_provisioner_shutdown: shut down the provisioner EC2 after install
+check_provisioner_shutdown = true
+# dev_environment: keep false
+dev_environment = false
+# tags: set if needed
+tags = null
+
+# ***** Qumulo REPLACEMENT Cluster Options *****
+q_replacement_cluster = false
+q_existing_deployment_unique_name = null
+
+# ***** Qumulo Cluster Misc Options *****
+kms_key_id = null
+q_audit_logging = false
+q_cluster_additional_sg_cidrs = null
+q_cluster_additional_sg_ids = null
+# q_cluster_floating_ips: number of floating IPs; keep at 24 (min 4, max 147)
+q_cluster_floating_ips = 24
+q_permissions_boundary = null
+q_persistent_storage_bucket_policy = true
+
+# ***** OPTIONAL module ‘route53‑phz’ *****
+# Not used in this test; leave as is
+q_fqdn_name = "my-dns-name.local"
+q_record_name = "qumulo"
+q_route53_provision = false
+
+# ***** OPTIONAL module ‘nlb‑qumulo’ *****
+# Not used in this test; leave as is
+q_nlb_cross_zone = false
+q_nlb_override_subnet_id = null
+q_nlb_provision = false
+q_nlb_stickiness = true
+
+## Deploy the CNQ cluster with Terraform
+- Initialize the Terraform working directory
+
+'''terraform
+terraform init
+# Sample output
+.... omitted ....
+Terraform has been successfully initialized!
+
+- Apply the plan to create resources
+
+'''terraform
+terraform apply
+# Confirm with “yes” when prompted
+Do you want to perform these actions?
+Terraform will perform the actions described above.
+Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+# Sample output (truncated)
+.... omitted ....
+module.qprovisioner.null_resource.provisioner_status[0] (local-exec): *****CNQ Cluster Successfully Provisioned*****
+.... omitted ....
+Apply complete! Resources: 61 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+cluster_provisioned = "Success"
+deployment_unique_name = "ypark-cnq7231-3nodes-OW6ELGCN9TX"
+max_cluster_size = "6"
+min_cluster_size = "3"
+persistent_storage_bucket_names = [
+  "x3jbivvuwds-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-1",
+  "dj7bynqnzpv-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-2",
+  "f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3",
+  "1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4",
+]
+qumulo_floating_ips = [
+  "172.17.17.13",
+  "172.17.17.15",
+  "172.17.17.229",
+  "172.17.17.248",
+  "172.17.17.252",
+  "172.17.17.58",
+]
+qumulo_knowledge_base = "https://care.qumulo.com/hc/en-us/categories/115000637447-KNOWLEDGE-BASE"
+qumulo_primary_ips = [
+  "172.17.17.99",
+  "172.17.17.21",
+  "172.17.17.123",
+]
+qumulo_private_NFS = "<custom.dns>:/<NFS Export Name>"
+qumulo_private_SMB = "\\<custom.dns>\\<SMB Share Name>"
+qumulo_private_url = "https://<custom.dns>"
+qumulo_private_url_node1 = "https://172.17.17.99"
+
+## After a successful install
+
+- You should see output similar to the above.
+
+- In the AWS Management Console under EC2, verify that three EC2 instances have been launched.
+- <a href="images/cnq ec2.png"><img src="images/cnq ec2.png" alt="cnq ec2" width="50%"></a> 
+- Once installation is complete, you can further configure the EC2 instances and test access to the Qumulo GUI, Qumulo CLI, and protocols such as SMB, NFS, and S3.
