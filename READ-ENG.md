@@ -109,3 +109,13 @@ To enable proper installation and cloud-based monitoring of CNQ, ensure that out
   choco --version
   # Sample output
   2.3.0
+  - Install **awscli** with `choco install awscli`.
+- Install **terraform** with `choco install terraform`.
+- Verify the awscli version with `aws --version`:
+
+  ```powershell
+  # Check awscli version
+  aws --version
+  # Sample output
+  aws-cli/2.17.32 Python/3.11.9 Windows/10 exe/AMD64
+
