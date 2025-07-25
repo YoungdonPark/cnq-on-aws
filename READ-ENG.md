@@ -369,7 +369,7 @@ qumulo_private_url_node1 = "https://172.17.17.99"
 
 
 
-## After a successful install
+- After a successful install
 
 - You should see output similar to the above.
 
