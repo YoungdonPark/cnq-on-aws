@@ -118,4 +118,49 @@ To enable proper installation and cloud-based monitoring of CNQ, ensure that out
   aws --version
   # Sample output
   aws-cli/2.17.32 Python/3.11.9 Windows/10 exe/AMD64
+- Verify the Terraform version with terraform -version:
+# Check Terraform version
+terraform -version
+# Sample output
+Terraform v1.9.8
+on windows_amd64
+
+
+# 9. CNQ Setup Step 1 of 2 – Create S3 Backend Storage
+- **(Important)** The overall installation has two steps.  
+  1. **Step 1** creates the S3 backend storage.  
+  2. **Step 2** launches the compute nodes (EC2 + Qumulo OS) and then attaches them to the S3 backend to form the final cluster.  
+
+- **(Important)** The four buckets created in this process are *hashed* so that each lands on a different AWS S3 partition, maximizing performance.
+
+- Extract `aws‑terraform‑cnq‑<x.y>.zip` to any directory you like.
+
+- Open the file `aws‑terraform‑cnq‑<x.y>\persistent-storage\terraform.tfvars` in a text editor.  
+  - Terraform automatically searches for a `terraform.tfvars` file in the directory where you run `terraform apply`.  
+  - The `terraform.tfvars` for **S3 backend storage** is located at `aws‑terraform‑cnq‑<x.y>\persistent-storage`.  
+  - The `terraform.tfvars` for **creating the CNQ cluster** itself is located at `aws‑terraform‑cnq‑<x.y>\`.
+
+- Edit the variables in `terraform.tfvars` as shown below and save the file:
+
+  ```terraform
+  # deployment_name: Specify any name you like (32 chars max)
+  deployment_name = "ypark-cnq7231-3nodes-s3be"
+
+  # aws_region: Specify the AWS Region
+  aws_region = "ap-northeast-2"
+
+  # prevent_destroy: When true, “terraform destroy” will NOT delete the buckets,
+  # preventing accidents. For production, set this to true. If false, the
+  # buckets (and their data) will be deleted by “terraform destroy”.
+  prevent_destroy = false
+
+  # soft_capacity_limit: Logical capacity of the S3 backend in TB. The value
+  # does not affect billing (AWS bills on actual usage). Minimum 500 TB,
+  # maximum 10 000 TB (10 PB). You can increase it later.
+  soft_capacity_limit = 500
+
+  # tags: Edit if needed
+  tags = null
+  
+
 
