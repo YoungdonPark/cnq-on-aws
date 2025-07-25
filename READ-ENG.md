@@ -73,3 +73,10 @@
 ## To verify S3 Gateway endpoint functionality:
 - Refer to: [https://repost.aws/knowledge-center/vpc-check-traffic-flow](https://repost.aws/knowledge-center/vpc-check-traffic-flow)
 
+
+# 7. Command Execution Tools and Terraform Variable File Editors
+- You can use the default Windows command-line tool **PowerShell**, and the default text editor **Notepad**.
+- It is recommended to install a development tool such as **VS Code** ([https://code.visualstudio.com/](https://code.visualstudio.com/)).
+  - To use Terraform in VS Code, you must install the **HashiCorp Terraform extension**.
+ 
+
