@@ -37,3 +37,39 @@
 - Example image of completed upload:
   - <a href="images/cnq install file.png"> <img src="images/cnq install file.png" alt="cnq install file" width="45%"> </a>
 
+# 5. Required AWS Preconfiguration
+- **(Important) The following two conditions must be met, or the CNQ installation will fail:**
+  - The **Private subnet** where CNQ will be deployed **must have internet access** (e.g., via a NAT gateway or alternative routing) in order to install required packages.
+  - The **Private subnet** must be able to communicate with the S3 backend storage via **S3 Gateway Endpoint**. This ensures that S3 traffic is routed through the AWS internal network rather than the internet, **greatly reducing S3 data transfer costs**.
+
+## Resources to be preconfigured:
+- **1 VPC**
+  - **1 Internet Gateway**
+  - **1 S3 Gateway Endpoint**
+  - **1 EC2 Keypair**
+  - **1 Public Subnet**
+    - Includes **1 NAT Gateway**
+  - **1 Private Subnet**  
+    **(Important) It is recommended to configure the Private subnet with a /24 subnet mask.**
+
+## Routing Configuration:
+- Default route of the **Public Subnet** → Internet Gateway
+- Default route of the **Private Subnet** → NAT Gateway
+- S3 traffic route of the **Private Subnet** → S3 Gateway Endpoint
+
+## S3 Gateway Endpoint Setup:
+- **(Important)** Enabling the S3 Gateway Endpoint allows CNQ to communicate with S3 over AWS’s internal network, minimizing S3 traffic costs.
+- Navigate to: **VPC > Endpoints > Create endpoint**
+- Select **Service category: AWS services**
+- Under **Services**, search for `S3` and select the appropriate S3 service for the region:
+  - <a href="images/s3 gw endpoint-service.png"> <img src="images/s3 gw endpoint-service.png" alt="s3 gw endpoint-service" width="25%"> </a>
+- Under **Type**, select **Gateway** and choose the target **VPC**:
+  - <a href="images/s3 gw endpoint - type, vpc.png"> <img src="images/s3 gw endpoint - type, vpc.png" alt="s3 gw endpoint - type, vpc" width="65%"> </a>
+- Under **Route tables**, select the route table associated with the Private Subnet where CNQ will be installed:
+  - <a href="images/s3 gw endpoint rt지정.png"> <img src="images/s3 gw endpoint rt지정.png" alt="s3 gw endpoint rt지정" width="65%"> </a>
+- For **Policy**, choose **Full access**
+- Click **Create endpoint** to complete the creation
+
+## To verify S3 Gateway endpoint functionality:
+- Refer to: [https://repost.aws/knowledge-center/vpc-check-traffic-flow](https://repost.aws/knowledge-center/vpc-check-traffic-flow)
+
