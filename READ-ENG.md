@@ -93,4 +93,19 @@ To enable proper installation and cloud-based monitoring of CNQ, ensure that out
 - It is recommended to install a development tool such as **VS Code** ([https://code.visualstudio.com/](https://code.visualstudio.com/)).
   - To use Terraform in VS Code, you must install the **HashiCorp Terraform extension**.
  
+# 8. Required Application Installation
+- When running VS Code or PowerShell below, make sure to **Run as administrator**.  
+- Applications that need to be installed  
+  - CLI‑based package‑management tool  
+  - AWS CLI  
+  - Terraform  
 
+- Installing a CLI‑based package manager such as **Chocolatey** is recommended  
+  - Visit Chocolatey (https://chocolatey.org/install) and follow the installation guide.  
+  - After installation, verify the Chocolatey version with `choco --version`.  
+
+  ```powershell
+  # Check Chocolatey version
+  choco --version
+  # Sample output
+  2.3.0
