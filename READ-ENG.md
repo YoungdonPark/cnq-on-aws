@@ -161,6 +161,54 @@ on windows_amd64
 
   # tags: Edit if needed
   tags = null
-  
+- Open a CLI and change to the directory aws‑terraform‑cnq‑<x.y>\persistent-storage.
+- Use Terraform to create the S3 backend storage for CNQ in the following order.
+
+- Initialize the Terraform working directory
+'''terraform init
+# Sample output (truncated)
+.... omitted ....
+Terraform has been successfully initialized!
+- Preview the changes, estimate impact, and validate for errors
+
+  terraform plan
+# Sample output (truncated)
+.... omitted ....
+aws_ssm_parameter.bucket-region: Refreshing state... [id=/qumulo/ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV/bucket-region]
+aws_s3_bucket.cnq_bucket[2]: Refreshing state... [id=f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3]
+aws_s3_bucket.cnq_bucket[1]: Refreshing state... [id=dj7bynqnzpv-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-2]
+aws_s3_bucket.cnq_bucket[0]: Refreshing state... [id=x3jbivvuwds-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-1]
+aws_s3_bucket.cnq_bucket[3]: Refreshing state... [id=1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4]
+.... omitted ....
+Plan: 4 to add, 1 to change, 0 to destroy.
+
+
+- Apply the plan to create the resources
+
+terraform apply
+# Confirm when prompted
+Do you want to perform these actions?
+Terraform will perform the actions described above.
+Only 'yes' will be accepted to approve.
+  Enter a value: yes
+# Sample output (truncated)
+.... omitted ....
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bucket_names = [
+  "x3jbivvuwds-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-1",
+  "dj7bynqnzpv-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-2",
+  "f7favyoar5c-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-3",
+  "1xhlnlmxtph-ypark-cnq7231-3nodes-s3be-wo6xizsf1wv-qps-4",
+]
+deployment_unique_name = "ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV"
+prevent_destroy        = false
+soft_capacity_limit    = "500 TB"
+
+- (Important) The value ypark-cnq7231-3nodes-s3be-WO6XIZSF1WV is the deployment_unique_name of the S3 backend storage. You will need this value in CNQ Setup Step 2 of 2.
+
+- You can also verify in the AWS Management Console that four buckets containing this unique name have been created.
 
 
