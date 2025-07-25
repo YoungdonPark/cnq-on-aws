@@ -73,6 +73,20 @@
 ## To verify S3 Gateway endpoint functionality:
 - Refer to: [https://repost.aws/knowledge-center/vpc-check-traffic-flow](https://repost.aws/knowledge-center/vpc-check-traffic-flow)
 
+# 6. Firewall Policy Requirements for CNQ Installation and Monitoring (CBM)
+
+To enable proper installation and cloud-based monitoring of CNQ, ensure that outbound traffic from the CNQ environment is allowed to reach the following destinations over **port 443 (HTTPS)**:
+
+| Destination                         | Port |
+|-------------------------------------|------|
+| `api.nexus.qumulo.com`             | 443  |
+| `ep1.qumulo.com`                   | 443  |
+| `api.missionq.qumulo.com`         | 443  |
+| `missionq-dumps.s3.amazonaws.com` | 443  |
+| `monitor.qumulo.com`              | 443  |
+
+> **Reference**: [Qumulo Monitoring and Remote Support Setup Guide](https://docs.qumulo.com/administrator-guide/monitoring-and-metrics/enabling-cloud-based-monitoring-remote-support.html)
+
 
 # 7. Command Execution Tools and Terraform Variable File Editors
 - You can use the default Windows command-line tool **PowerShell**, and the default text editor **Notepad**.
